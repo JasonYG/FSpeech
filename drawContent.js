@@ -166,11 +166,12 @@ function drawContent(Page) {
     buttonIcon.parent(button);
 
     divText = createDiv();
-    divText.class("tBoxRO");
+    divText.class("inbox");
     divText.parent("content");
     text = createElement("textarea", input);
     text.elt.readOnly = "true";
-    console.log(text.elt.readOnly);
+    text.elt.cols = "80";
+    text.elt.rows = "15";
     text.parent(divText);
 
 
