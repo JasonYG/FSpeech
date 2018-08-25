@@ -26,18 +26,32 @@ function draw() {
   // textAlign(CENTER);
   // drawSentence( width * .25);
 
-  var testSentence = sentenceInput();
+  let testSentence = sentenceInput();
+  let testSentenceArr = testSentence.split(" ");
 
+  let allWordsArray = [];
 
   //create array of words aka a sentence
-  //for (i = )
+  for (let i = 0; i < testSentenceArr.length; i++){
+    let newWord = new CreateNewWord(testSentenceArr[i]);
+    allWordsArray.push(newWord);
+  }
+
+  // rendering each word in a loop
+  // spacing is wack
+  let counter = 0;
+  for (let j = 0; j < allWordsArray.length; j++){
+    counter += 50;
+    allWordsArray[j].drawWord(100 + counter, 100);
+  }
 
   // testing oop word
-  var testWord = new CreateNewWord("Test");
-  // testWord.color = (0,255,127);
-  testWord.drawWord(100, 100);
+  // let testWord = new CreateNewWord("Test");
+  // // testWord.color = (0,255,127);
+  // testWord.drawWord(100, 100);
 }
 
+// word class
 function CreateNewWord(word) {
   //create a new word which will go into a list of words
   this.word = word;
