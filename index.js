@@ -18,7 +18,7 @@ function setup() {
   b_rec_start.mouseReleased(rec_start);
 
   b_rec_stop = createButton("stop recording");
-  b_rec_start.mouseReleased(rec_stop);
+  b_rec_stop.mouseReleased(rec_stop);
 
   outbox = createElement("textarea");
   outbox.elt.placeholder = "output goes here";
@@ -30,7 +30,7 @@ function setup() {
 
 
 function rec_start(){
-  input = inbox.value();
+  input = inbox.html();
   console.log(input);
 
   //start recording here
