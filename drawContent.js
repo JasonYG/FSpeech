@@ -3,13 +3,38 @@ let input;
 function changePage(Page) {
   let page = Page;
   let content = select("#content");
-  content.removeClass("fade-in");
-  content.addClass("fade-out");
-  setTimeout(function() {
-    content.removeClass("fade-out");
-    content.addClass("fade-in");
+
+  if(page == 1){
+    animationHandler = 0;
+    currentState = 2;
+  }
+  if(page == 2){
+    animationHandler = 0;
+    currentState = 4;
+  }
+
+  content.style("animation", "none");
+  content.style("animation", "fade-out 0.7s");
+  setTimeout(function () {
+    content.style("animation", "none");
+    content.style("animation", "fade-in 0.7s");
+
+    if(page == 0){
+      currentState = 0;
+    }else if(page == 2){
+      currentState = 3;
+    }
+    else{
+      currentState = 1;
+
+    }
+    drawBackObjects(currentState);
     drawContent(page);
   }, 700);
+
+
+
+
 }
 
 
@@ -19,7 +44,7 @@ function drawContent(Page) {
 
   let content = select("#content");
 
-  console.log(content.class());
+
   if (page == -1) {
     //test page
     let inbox;
@@ -88,7 +113,7 @@ function drawContent(Page) {
 
 
     divHeader = createDiv();
-    divHeader.class("header");
+    divHeader.class("header fade-in-header");
     divHeader.parent(content);
 
     header = createElement("h1", "placeholder");
@@ -98,14 +123,14 @@ function drawContent(Page) {
     divButton.parent(content);
 
     divPara = createDiv();
-    divPara.class("para");
+    divPara.class("para fade-in-para");
     divPara.parent(content);
 
     para = createElement("p", "yaw yeet");
     para.parent(divPara);
 
     divButton = createDiv();
-    divButton.class("launchButton");
+    divButton.class("launchButton fade-in-button");
     divButton.parent(content);
 
     button = createButton("Get started");
@@ -133,7 +158,7 @@ function drawContent(Page) {
 
     divObjects = createDiv();
     divObjects.class("objects");
-    divObjects.parent(content)
+    divObjects.parent(content);
 
     divInbox = createDiv();
     divInbox.class("inbox");
