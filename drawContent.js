@@ -214,9 +214,11 @@ function drawContent(Page) {
     button.parent(divHeader);
 
     divText = createDiv();
-    divText.class("textBox");
+    divText.class("tBoxRO");
     divText.parent("content");
-    text = createElement("p", input);
+    text = createElement("textarea", input);
+    text.elt.readOnly = "true";
+    console.log(text.elt.readOnly);
     text.parent(divText);
 
 
