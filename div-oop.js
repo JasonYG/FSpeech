@@ -24,7 +24,7 @@ function setup() {
   let testSentence = sentenceInput();
   let testSentenceArr = testSentence.split(" ");
 
-  // array to store word objects
+  // array to store CreateNewWord objects
   let allWordsArray = [];
 
   parentDiv = createDiv("This is the parent.");
@@ -35,7 +35,6 @@ function setup() {
     allWordsArray.push(newWord);
     allWordsArray[i].word.parent(parentDiv); //adds div attributes to the parentDiv
   }
-
 
 
 }
@@ -51,7 +50,7 @@ function CreateNewWord(word) {
   this.color = (255, 255, 255);
   this.x_pos = 0;
   this.y_pos = 0;
-  this.read_correct = null;
+  this.read_correct = null; //boolean for the user reading the word
 
   // draw the word (loop this)
   this.drawWord = function(x, y) {
