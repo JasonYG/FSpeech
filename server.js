@@ -66,9 +66,7 @@ function handleRequest(req, res) {
   );
 }
 
-
-// WebSocket Portion
-// WebSockets work with the HTTP server
+// Set up websocket
 let io = require('socket.io').listen(server);
 
 // Register a callback function to run when we have an individual connection
@@ -76,48 +74,35 @@ let io = require('socket.io').listen(server);
 io.sockets.on('connection',
   // We are given a websocket object in our function
   function (socket) {
-
     console.log("We have a new client: " + socket.id);
 
-    // When this user emits, client side: socket.emit('otherevent',some data);
+    // "record" event handler
     socket.on('record',
       function() {
-        // Data comes in as whatever was sent, including objects
-        console.log("I AM RECORDING THIS TELLS ME IM RECORDING");
-
-        // Create a recognize stream
+        // Create a recognize stream for Google Cloud Speech API
         const recognizeStream = client
           .streamingRecognize(request)
           .on('error', console.error)
           .on('data', data => {
             process.stdout.write(data.results[0] && data.results[0].alternatives[0] ? `Transcription:${data.results[0].alternatives[0].transcript}\n`: `\n\nReached transcription time limit, press Ctrl+C\n`);
-            // socket.broadcast.emit('recorded', data.results[0].alternatives[0].transcript);
             io.sockets.emit('recorded', data.results[0].alternatives[0].transcript);
           });
 
         // Start recording and send the microphone input to the Speech API
-
         record
           .start({
             sampleRateHertz: sampleRateHertz,
             threshold: 0,
-            // Other options, see https://www.npmjs.com/package/node-record-lpcm16#options
             verbose: false,
-            recordProgram: 'rec', // Try also "arecord" or "sox"
+            recordProgram: 'rec',
             silence: '10.0',
           })
           .on('error', console.error)
           .pipe(recognizeStream);
-
-        console.log('Listening, press Ctrl+C to stop.');
-        // Send it to all other clients
-
-        // This is a way to send to everyone including sender
-        // io.sockets.emit('message', "this goes to everyone");
-
       }
     );
 
+    // "disconnect" event handler
     socket.on('disconnect', function() {
       console.log("Client has disconnected");
     });
