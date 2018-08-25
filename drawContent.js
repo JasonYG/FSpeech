@@ -18,7 +18,7 @@ function drawContent(Page) {
   removeElements();
 
   let content = select("#content");
-
+  drawBackObjects(currentState);
   console.log(content.class());
   if (page == -1) {
     //test page
