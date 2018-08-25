@@ -1,11 +1,16 @@
+let input;
+
 function drawContent(Page) {
   let page = Page;
   removeElements();
 
+<<<<<<< HEAD
   let content = select("#content");
   content.removeClass("fade-in");
   content.addClass("fade-in");
   console.log(content.class());
+=======
+>>>>>>> 517b71df5b5db8ea4e2f42e653c564ffba6116b8
   if (page == -1) {
     //test page
     let inbox;
@@ -109,16 +114,24 @@ function drawContent(Page) {
     let divObjects;
 
     divHeader = createDiv();
+<<<<<<< HEAD
     divHeader.class("header2");
     divHeader.parent(content);
 
+=======
+    divHeader.parent("content");
+    rect(13, 1, 600, 55, 20, 15, 10, 5);
+>>>>>>> 517b71df5b5db8ea4e2f42e653c564ffba6116b8
     header = createElement("h2","Step 1: Input Text and press Enter!");
     header.parent(divHeader);
 
+<<<<<<< HEAD
     divObjects = createDiv();
     divObjects.class("objects");
     divObjects.parent(content)
 
+=======
+>>>>>>> 517b71df5b5db8ea4e2f42e653c564ffba6116b8
     divInbox = createDiv();
     divInbox.class("inbox");
     divInbox.parent(divObjects);
@@ -141,22 +154,104 @@ function drawContent(Page) {
 
     function recStart() {
       //start recording here
-      let input;
       input = inbox.value();
+<<<<<<< HEAD
       console.log(input); //For Testing Purposes
       drawContent(2);
+=======
+      var check = Boolean(input);
+      if (check){
+        removeElements();
+        drawContent(2);
+      }else{
+        alert("You didn't type in anything!")
+        drawContent(1);
+      }
+
+>>>>>>> 517b71df5b5db8ea4e2f42e653c564ffba6116b8
     }
 
 
   }
   if (page == 2) {
-    // record self
+    let divHeader;
+    let divText;
+    let header;
+    let text;
+    let button;
+    let para;
+
+    divHeader = createDiv();
+    divHeader.parent("content");
+    header = createElement("h2","Step 2: Record Yourself!");
+    header.position(20,-5);
+    header.parent(divHeader);
+    button = createButton("Record");
+    button.position(500,20);
+    button.mouseReleased(recStart);
+    button.parent(divHeader);
+
+    divText = createDiv();
+    divText.class("para");
+    divText.parent("content");
+    text = createElement("p",input);
+    text.parent(divText);
+
+
+
+
+
+    function recStart(){
+      alert("Recording Started!");
+      removeElements();
+      drawContent(3);
+    }
+
+
   }
   if (page == 3) {
-    // processing
+    let divHeader;
+    let header;
+
+    divHeader = createDiv();
+    divHeader.parent("content");
+    header = createElement("h2","Loading... ");
+    header.position(20,-5);
+    header.parent(divHeader);
+
+    alert("Finished Loading!");
+    drawContent(4);
+
   }
   if (page == 4) {
-    // review
+    let divHeader;
+    let divText;
+    let header;
+    let button;
+    let text;
+    let para;
+
+    divHeader = createDiv();
+    divHeader.parent("content");
+    header = createElement("h2","Step 3: Review!");
+    header.position(20,-5);
+    header.parent(divHeader);
+    button = createButton("Try Again?");
+    button.position(500,20);
+    button.mouseReleased(recStart);
+    button.parent(divHeader);
+
+
+    divText = createDiv();
+    divText.class("para");
+    divText.parent("content");
+    text = createElement("p",input);
+    text.parent(divText);
+
+    function recStart(){
+      removeElements();
+      drawContent(1);
+    }
   }
 
 }
