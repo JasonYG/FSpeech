@@ -1,0 +1,15 @@
+html, body {
+  font-family: 'Open Sans', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.sketch{
+  position:absolute;
+}
+
+.content{
+  position:absolute;
+}
+
+.header h1{
+  background-color: grey;
+}
