@@ -72,7 +72,7 @@ function drawContent(Page) {
     divPara.class("para");
     divPara.parent(content);
 
-    para = createElement("p", "yaw yeet");
+    para = createElement("p", "F stands for fix");
     para.parent(divPara);
 
     divButton = createDiv();
@@ -102,13 +102,10 @@ function drawContent(Page) {
     header = createElement("h2", "Step 1: Input Text and Press Enter");
     header.parent(divHeader);
 
-    divObjects = createDiv();
-    divObjects.class("objects");
-    divObjects.parent(content);
 
     divInbox = createDiv();
     divInbox.class("inbox");
-    divInbox.parent(divObjects);
+    divInbox.parent("content");
 
     inbox = createElement("textarea");
     inbox.elt.placeholder = "input goes here";
@@ -118,7 +115,7 @@ function drawContent(Page) {
 
     divButton = createDiv();
     divButton.class("nextButton");
-    divButton.parent(divObjects);
+    divButton.parent("content");
 
     recStartB = createButton("Enter");
     recStartB.mouseReleased(recStart);
@@ -240,13 +237,13 @@ function drawContent(Page) {
 
     pasteText = createElement("textarea", input);
     pasteText.elt.readOnly = "true";
-    pasteText.elt.cols = "80";
+    pasteText.elt.cols = "75";
     pasteText.elt.rows = "20";
     pasteText.parent(divText);
 
     speechText = createElement("textarea", input);
     speechText.elt.readOnly = "true";
-    speechText.elt.cols = "80";
+    speechText.elt.cols = "75";
     speechText.elt.rows = "20";
     speechText.parent(divText);
 
