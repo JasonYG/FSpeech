@@ -1,0 +1,23 @@
+{
+  "name": "hack-the-6ix",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aarish-A/Hack-The-6ix.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aarish-A/Hack-The-6ix/issues"
+  },
+  "homepage": "https://github.com/Aarish-A/Hack-The-6ix#readme",
+  "dependencies": {
+    "@google-cloud/speech": "^2.0.0",
+    "p5": "^0.7.1"
+  }
+}
