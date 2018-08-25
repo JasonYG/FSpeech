@@ -50,9 +50,6 @@ function drawBackObjects(State){
     rect(0, 0, windowWidth, 95+(windowHeight-95)/animationTime*(animationHandler+1));
   }
 
-
-
-
 }
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
