@@ -72,7 +72,7 @@ function drawContent(Page) {
     divPara.class("para");
     divPara.parent(content);
 
-    para = createElement("p", "F stands for fix");
+    para = createElement("p", "Description of our product.");
     para.parent(divPara);
 
     divButton = createDiv();
@@ -108,7 +108,7 @@ function drawContent(Page) {
     divInbox.parent("content");
 
     inbox = createElement("textarea");
-    inbox.elt.placeholder = "input goes here";
+    inbox.elt.placeholder = "Input goes here";
     inbox.elt.cols = "80";
     inbox.elt.rows = "15";
     inbox.parent(divInbox);
