@@ -34,6 +34,7 @@ function drawBackObjects(State){
     rect(0, 0, windowWidth, windowHeight/2-(windowHeight/2-95)/animationTime*(animationHandler+1));
   }
 
+<<<<<<< HEAD
   if(state == 3){
     noStroke();
     fill(200, 200, 200);
@@ -41,6 +42,10 @@ function drawBackObjects(State){
     fill(100, 100, 100);
     rect(0, 0, windowWidth, windowHeight);
   }
+=======
+  b_rec_stop = createButton("stop recording");
+  b_rec_stop.mouseReleased(rec_stop);
+>>>>>>> master
 
   if(state == 4){
     noStroke();
@@ -52,6 +57,12 @@ function drawBackObjects(State){
 
 
 
+<<<<<<< HEAD
+=======
+function rec_start(){
+  input = inbox.html();
+  console.log(input);
+>>>>>>> master
 
 }
 function windowResized() {
