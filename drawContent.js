@@ -181,11 +181,12 @@ function drawContent(Page) {
 
 
     divText = createDiv();
-    divText.class("tBoxRO");
+    divText.class("inbox");
     divText.parent("content");
     text = createElement("textarea", input);
     text.elt.readOnly = "true";
-    console.log(text.elt.readOnly);
+    text.elt.cols = "80";
+    text.elt.rows = "15";
     text.parent(divText);
 
 
@@ -210,22 +211,6 @@ function drawContent(Page) {
 
   }
   if (page == 3) {
-    let divHeader;
-    let header;
-
-    divHeader = createDiv();
-    divHeader.parent("content");
-    divHeader.class("header2");
-
-    header = createElement("h2", "Loading... ");
-    header.position(20, -5);
-    header.parent(divHeader);
-
-    alert("Finished Loading!");
-    changePage(4);
-
-  }
-  if (page == 4) {
     let divHeader;
     let divText;
     let header;
