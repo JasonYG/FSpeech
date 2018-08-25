@@ -55,7 +55,7 @@ function CreateNewWord(word) {
   this.color = "white";
   this.x_pos = 0;
   this.y_pos = 0;
-  this.userCorrect = false; //boolean for the user reading the word
+  this.userCorrect = null; //boolean for the user reading the word
 
   //changing the Color
   this.changeColor = function(userCorrect){
