@@ -1,0 +1,192 @@
+{
+  box-sizing:border-box;
+  -webkit-box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Open Sans', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow:hidden;
+}
+
+.sketch{
+  display:block;
+  position:absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.content{
+  display:block;
+  position:absolute;
+  height: 100%;
+  width: 100%;
+}
+
+
+.header{
+  display:inline-block;
+  /* font-style: */
+  width:100%;
+  position:relative;
+  text-align: center;
+  top:20%;
+  font-size:3em;
+  padding: 0;
+}
+
+.para{
+  display:inline-block;
+  position:relative;
+  width:100%;
+  top:10%;
+  text-align: center;
+  font-size:1em;
+}
+
+.launchButton{
+  display:inline-block;
+  position:relative;
+  text-align: center;
+  width:100%;
+  top:30%;
+}
+
+.objects{
+  display:block;
+  top:95px;
+  height:calc(100% - 95px);
+  width:100%;
+}
+
+.header2{
+  position:relative;
+  font-size:1.5em;
+  top:-5px;
+  left:20px;
+  white-space: nowrap;
+}
+
+.inbox{
+  position: relative;
+  text-align: center;
+  margin:auto;
+  width: 100%;
+  height:50%;
+  top:10%;
+}
+
+.reviewBox{
+  position: relative;
+  text-align: center;
+  margin:auto;
+  width: 100%;
+  height:50%;
+  top:10%;
+}
+
+.button{
+  border:none;
+  cursor:pointer;
+  text-align: center;
+  font-size: 1em;
+  padding:15px 50px;
+  background-color: #4CAF50;
+}
+
+.buttonIcon{
+  border:none;
+  cursor:pointer;
+  text-align: center;
+  font-size: 4em;
+  padding:15px 25px;
+  background-color: #4CAF50;
+}
+
+.button:hover{
+  background-color: black;
+}
+
+.inbox textarea{
+    resize: none;
+    outline: none;
+    overflow: auto;
+    width: calc(100vw - 30%);
+    height:inherit;
+    font-family: Tahoma, sans-serif;
+    background:transparent;
+    border:none;
+    border-radius: 5px;
+}
+
+.reviewBox textarea{
+  resize: none;
+  outline: none;
+  overflow: auto;
+  width: calc(50vw - 10%);
+  height:inherit;
+  font-family: Tahoma, sans-serif;
+  background:transparent;
+  border:none;
+  border-radius: 5px;
+}
+
+.nextButton{
+  display:inline-block;
+  position:absolute;
+  text-align: center;
+  width:100%;
+  top:80%;
+}
+
+.recButton{
+  display:inline-block;
+  position:absolute;
+  text-align: center;
+  width:100%;
+  top:60%;
+}
+
+.tBoxRO{
+  display: inline-block: ;
+  position: absolute;
+  width:100%;
+  top:50%;
+  text-align: center;
+  font-size:1em;
+
+}
+
+.fade-in{
+  animation: fade-in 0.7s;
+}
+
+.fade-out{
+  animation: fade-out 0.7s;
+}
+
+
+@keyframes fade-in{
+  0%{
+    opacity: 0;
+    user-select: none;
+  }
+
+  100%{
+    opacity: 1;
+    user-select: auto;
+  }
+}
+
+@keyframes fade-out{
+  0%{
+    opacity: 1;
+    user-select: none;
+  }
+
+  100%{
+    opacity: 0;
+    user-select: none;
+  }
+}
