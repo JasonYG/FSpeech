@@ -4,13 +4,13 @@ let currentState = 1;
 function setup() {
   canvas  = createCanvas(windowWidth, windowHeight);
   canvas.parent("sketch");
-  drawContent(0);
+  changePage(0);
   background(255);
 }
 function drawBackObjects(State){
   let state = State;
   if(state == 0){
-    
+
   }
   if(state == 1){
     noStroke();

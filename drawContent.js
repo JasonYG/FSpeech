@@ -1,12 +1,24 @@
 let input;
 
+function changePage(Page){
+  let page = Page;
+  let content = select("#content");
+  content.removeClass("fade-in");
+  content.addClass("fade-out");
+  setTimeout(function () {
+    content.removeClass("fade-out");
+    content.addClass("fade-in");
+    drawContent(page);
+  }, 700);
+}
+
+
 function drawContent(Page) {
   let page = Page;
   removeElements();
 
   let content = select("#content");
-  content.removeClass("fade-in");
-  content.addClass("fade-in");
+
   console.log(content.class());
   if (page == -1) {
     //test page
@@ -97,7 +109,7 @@ function drawContent(Page) {
     divButton.parent(content);
 
     button = createButton("Get started");
-    button.mouseReleased(function() { drawContent(1);});
+    button.mouseReleased(function() { changePage(1);});
     button.class("button");
     button.parent(divButton);
 
@@ -148,10 +160,9 @@ function drawContent(Page) {
       var check = Boolean(input);
       if (check){
         removeElements();
-        drawContent(2);
+        changePage(2);
       }else{
         alert("You didn't type in anything!")
-        drawContent(1);
       }
 
     }
@@ -189,7 +200,7 @@ function drawContent(Page) {
     function recStart(){
       alert("Recording Started!");
       removeElements();
-      drawContent(3);
+      changePage(3);
     }
 
 
@@ -205,7 +216,7 @@ function drawContent(Page) {
     header.parent(divHeader);
 
     alert("Finished Loading!");
-    drawContent(4);
+    changePage(4);
 
   }
   if (page == 4) {
@@ -235,7 +246,7 @@ function drawContent(Page) {
 
     function recStart(){
       removeElements();
-      drawContent(1);
+      changePage(1);
     }
   }
 
