@@ -8,7 +8,7 @@ function changePage(Page) {
     animationHandler = 0;
     currentState = 2;
   }
-  if(page == 4){
+  if(page == 3){
     animationHandler = 0;
     currentState = 4;
   }
@@ -21,7 +21,7 @@ function changePage(Page) {
 
     if(page == 0){
       currentState = 0;
-    }else if(page == 4){
+    }else if(page == 3){
       currentState = 3;
     }
     else{
@@ -58,7 +58,7 @@ function drawContent(Page) {
     divHeader.class("header");
     divHeader.parent(content);
 
-    header = createElement("h1", "placeholder");
+    header = createElement("h1", "F Speaking");
     header.parent(divHeader);
 
     divButton = createDiv();
@@ -149,12 +149,23 @@ function drawContent(Page) {
     let button;
     let buttonNext;
 
+
+
     divHeader = createDiv();
     divHeader.class("header2");
     divHeader.parent("content");
 
     header = createElement("h2", "Step 2: Record Yourself");
     header.parent(divHeader);
+
+    divText = createDiv();
+    divText.class("inbox");
+    divText.parent("content");
+    text = createElement("textarea", input);
+    text.elt.readOnly = "true";
+    text.elt.cols = "80";
+    text.elt.rows = "15";
+    text.parent(divText);
 
     divButton = createDiv();
     divButton.class("recButton");
@@ -180,14 +191,7 @@ function drawContent(Page) {
     buttonNext.parent(divNext);
 
 
-    divText = createDiv();
-    divText.class("inbox");
-    divText.parent("content");
-    text = createElement("textarea", input);
-    text.elt.readOnly = "true";
-    text.elt.cols = "80";
-    text.elt.rows = "15";
-    text.parent(divText);
+
 
 
     function recStart() {
@@ -212,32 +216,45 @@ function drawContent(Page) {
   }
   if (page == 3) {
     let divHeader;
+    let divButton;
     let divText;
+
     let header;
     let button;
     let text;
-    let para;
 
     divHeader = createDiv();
     divHeader.parent("content");
     divHeader.class("header2");
 
-    header = createElement("h2", "Step 3: Review ");
+    header = createElement("h2", "Step 3: Review");
     header.parent(divHeader);
 
+    divText = createDiv();
+    divText.class("reviewBox");
+    divText.parent("content");
+
+    pasteText = createElement("textarea", input);
+    pasteText.elt.readOnly = "true";
+    pasteText.elt.cols = "80";
+    pasteText.elt.rows = "20";
+    pasteText.parent(divText);
+
+    speechText = createElement("textarea", input);
+    speechText.elt.readOnly = "true";
+    speechText.elt.cols = "80";
+    speechText.elt.rows = "20";
+    speechText.parent(divText);
+
+    divButton = createDiv();
+    divButton.parent("content");
+    divButton.class("nextButton");
+
     button = createButton("Try Again?");
-    button.position(500, 20);
     button.mouseReleased(recStart);
     button.class("button");
-    button.parent(divHeader);
+    button.parent(divButton);
 
-/*
-    divText = createDiv();
-    divText.class("para");
-    divText.parent("content");
-    text = createElement("p", input);
-    text.parent(divText);
-*/
     function recStart() {
       removeElements();
       changePage(1);
