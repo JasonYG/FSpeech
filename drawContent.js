@@ -59,12 +59,19 @@ function drawContent(Page) {
 
   }
 
+<<<<<<< HEAD
   if (page == 0) {
+=======
+  if(page == 0){
+    let divText;
+>>>>>>> b3701deac328bafc6b4bdc785ea6bef2ade85752
     let divHeader;
-    let div_paragraph;
+    let divPara;
     let divButton;
 
     let header;
+    let para;
+
 
     divHeader = createDiv();
     divHeader.class("header");
@@ -73,6 +80,7 @@ function drawContent(Page) {
     header = createElement("h1", "placeholder");
     header.parent(divHeader);
 
+<<<<<<< HEAD
     divButton = createDiv();
     divButton.parent("content");
 
@@ -87,6 +95,22 @@ function drawContent(Page) {
       removeElements();
       drawContent(1);
     }
+=======
+    divPara = createDiv();
+    divPara.class("para");
+    divPara.parent("content");
+
+    para = createElement("p", "yaw yeet");
+    para.parent(divPara);
+
+    divButton = createDiv();
+    divButton.class("launchButton");
+    divButton.parent("content");
+
+    button = createButton("Get started");
+    button.mouseReleased(function() { drawContent();});
+    button.parent(divButton);
+>>>>>>> b3701deac328bafc6b4bdc785ea6bef2ade85752
 
   }
   if (page == 1) {
