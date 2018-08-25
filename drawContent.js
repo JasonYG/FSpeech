@@ -31,9 +31,6 @@ function changePage(Page) {
     drawContent(page);
   }, 700);
 
-
-
-
 }
 
 
@@ -50,15 +47,23 @@ function drawContent(Page) {
     let divButton;
 
     let header;
+    let subHeader;
     let para;
-
 
     divHeader = createDiv();
     divHeader.class("header");
     divHeader.parent(content);
 
-    header = createElement("h1", "F Speaking");
+    header = createElement("h1", "F Speaking*");
     header.parent(divHeader);
+
+    divSubHeader = createDiv();
+    divSubHeader.class("subHeader");
+    divSubHeader.parent(divHeader);
+
+    subHeader = createElement("h5", "* the F stands for fix");
+    subHeader.class(subHeader);
+    subHeader.parent(divSubHeader);
 
     divButton = createDiv();
     divButton.parent(content);
