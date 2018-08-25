@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Aarish-A/Hack-The-6ix#readme",
   "dependencies": {
     "@google-cloud/speech": "^2.0.0",
+    "@google-cloud/storage": "^1.7.0",
     "p5": "^0.7.1"
   }
 }
