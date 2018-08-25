@@ -13,7 +13,6 @@ function changePage(Page) {
     currentState = 4;
   }
 
-  content.style("animation", "none");
   content.style("animation", "fade-out 0.7s");
   setTimeout(function () {
     content.style("animation", "none");
