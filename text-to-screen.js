@@ -20,6 +20,10 @@ function setup() {
   textSize(fontsize);
   textAlign(CENTER, CENTER);
 
+  drawSentence();
+}
+
+function drawSentence() {
   // turning the user's input into an array
   let testSentence = sentenceInput();
   let testSentenceArr = testSentence.split(" ");
@@ -39,7 +43,6 @@ function setup() {
   // manipulating the div container
   parentDiv.position(50, 50);
 }
-
 
 function draw() {
   background(160);
