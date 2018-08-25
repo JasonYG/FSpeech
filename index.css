@@ -24,7 +24,6 @@ html, body {
   width: 100%;
 }
 
-
 .header{
   display:inline-block;
   position:relative;
@@ -47,6 +46,15 @@ html, body {
   font-size:20px;
   padding: 0;
   line-height: 0;
+}
+
+.header2{
+  position:relative;
+  font-size:1.5em;
+  top:-5px;
+  left:20px;
+  white-space: nowrap;
+  color: white;
 }
 
 .para{
@@ -75,34 +83,6 @@ html, body {
   width:100%;
 }
 
-.header2{
-  position:relative;
-  font-size:1.5em;
-  top:-5px;
-  left:20px;
-  white-space: nowrap;
-  color: white;
-}
-
-.inbox{
-  display: inline-block;
-  position: relative;
-  text-align: center;
-  margin:25px;
-  width: 100%;
-  height:40%;
-  top:10%;
-}
-
-.reviewBox{
-  position: relative;
-  text-align: center;
-  margin:auto;
-  width: 100%;
-  height:50%;
-  top:10%;
-}
-
 .button{
   position: relative;
   border:none;
@@ -114,18 +94,23 @@ html, body {
   color: white;
 }
 
-.buttonIcon{
-  border:none;
-  cursor:pointer;
-  text-align: center;
-  color: white;
-  font-size: 3em;
-  padding:25px 45px;
-  background-color: #4CAF50;
-}
-
 .button:hover{
   background-color: black;
+}
+
+.button.icon{
+  font-size: 3em;
+  padding:25px 45px;
+}
+
+.inbox{
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  margin:25px;
+  width: 100%;
+  height:40%;
+  top:10%;
 }
 
 .inbox textarea{
@@ -140,6 +125,19 @@ html, body {
     border-radius: 5px;
 }
 
+.inbox.outbox textarea{
+    background:transparent;
+}
+
+.reviewBox{
+  position: relative;
+  text-align: center;
+  margin:auto;
+  width: 100%;
+  height:50%;
+  top:10%;
+}
+
 .reviewBox textarea{
   margin: 10px;
   position: relative;
@@ -149,14 +147,14 @@ html, body {
   width: calc(50vw - 10%);
   height:inherit;
   font-family: Tahoma, sans-serif;
-  background:white;
+  background: white;
   border:none;
   border-radius: 5px;
 }
 
 .nextButton{
   display:inline-block;
-  position:relative:;
+  position:relative;
   text-align: center;
   width:100%;
   margin-top:10px
@@ -170,7 +168,6 @@ html, body {
   top:60%;
 }
 
-
 .fade-in{
   animation: fade-in 0.7s;
 }
@@ -178,7 +175,6 @@ html, body {
 .fade-out{
   animation: fade-out 0.7s;
 }
-
 
 @keyframes fade-in{
   0%{

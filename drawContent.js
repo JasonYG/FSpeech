@@ -150,8 +150,6 @@ function drawContent(Page) {
     let button;
     let buttonNext;
 
-
-
     divHeader = createDiv();
     divHeader.class("header2");
     divHeader.parent("content");
@@ -160,8 +158,9 @@ function drawContent(Page) {
     header.parent(divHeader);
 
     divText = createDiv();
-    divText.class("inbox");
+    divText.class("inbox outbox");
     divText.parent("content");
+
     text = createElement("textarea", input);
     text.elt.readOnly = "true";
     text.elt.cols = "80";
@@ -170,11 +169,11 @@ function drawContent(Page) {
 
     divButton = createDiv();
     divButton.class("recButton");
-    divButton.parent("content")
+    divButton.parent("content");
 
     button = createButton("");
     button.mouseReleased(recStart);
-    button.class("buttonIcon");
+    button.class("button icon");
     button.parent(divButton);
 
     buttonIcon = createElement("i");
@@ -191,10 +190,6 @@ function drawContent(Page) {
     buttonNext.class("button");
     buttonNext.parent(divNext);
 
-
-
-
-
     function recStart() {
       //alert("Recording Started!");
       buttonIcon.class("fa fa-stop");
@@ -206,13 +201,11 @@ function drawContent(Page) {
       buttonIcon.class("fa fa-repeat");
       button.mouseReleased(recStart);
       divNext.show();
-      //changePage(3);
     }
 
     function next(){
       changePage(3);
     }
-
 
   }
   if (page == 3) {
