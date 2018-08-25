@@ -2,8 +2,7 @@
 // date: 25/08/2018
 
 // font setup
-var font,
-  fontsize = 40
+var font, fontsize = 40
 
 function preload() {
   // Ensure the .ttf or .otf font stored in the assets directory
@@ -23,45 +22,31 @@ function preload() {
 //   drawSentence();
 // }
 
-function drawSentence() {
-  // turning the user's input into an array
-  let testSentence = sentenceInput();
-  let testSentenceArr = testSentence.split(" ");
-
-  // array to store CreateNewWord objects
-  let allWordsArray = [];
-
-  parentDiv = createDiv(); //parent container holding divs from CreateNewWord objects
-
-  // creates div objects inside word objects and pushes it into 1 array
-  for (let i = 0; i < testSentenceArr.length; i++){
-    let newWord = new CreateNewWord(testSentenceArr[i]);
-    allWordsArray.push(newWord);
-    allWordsArray[i].word.parent(parentDiv); //adds div attributes to the parentDiv
-  }
-
-  // manipulating the div container
-}
-
 // class for individual words as objects
-function CreateNewWord(word) {
+function CreateNewWord(word, Parent) {
   //create a new word which will go into a list of words
-  this.word = createDiv(word);
+  this.word = createDiv();
+  this.word.parent(Parent);
+  this.word.class("word");
+
+  let wordTextObj = createElement("p", word);
+  wordTextObj.parent(this.word);
+
   this.wordText = word;
-  this.status = null;
   this.color = "white";
-  this.x_pos = 0;
-  this.y_pos = 0;
-  this.userCorrect = null; //boolean for the user reading the word
+  this.status = null; //0 - correct
 
   //changing the Color
-  this.changeColor = function(userCorrect){
-    console.log("Color changing!");
-    if (userCorrect){
-      //color to green
-    }
-    else{
-      //color to red
+  this.changeStatus = function(Status) {
+    this.status = Status;
+    //console.log("Color changing!");
+    if (Status == 0) {
+      this.word.style("color", "green");
+    } else if (Status == 1) {
+      this.word.style("color", "red");
+    } else if (Status == 2) {
+      this.word.style("color", "yellow");
+      //redundant
     }
   }
 }

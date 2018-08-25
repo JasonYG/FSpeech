@@ -1,22 +1,39 @@
-function checkSpeech(speechString, originalText){
-  parentDiv = createDiv();
+function checkSpeech(originalText, speechString) {
+  let originalContainer = createDiv();
+  originalContainer.parent("content");
+  originalContainer.class("container");
+
+  let speechContainer = createDiv();
+  speechContainer.parent("content");
+  speechContainer.class("container")
+
+
+
   let originalWordObjectArray = [];
+  let speechWordObjectArray = [];
   let redundentWords = [];
 
   let speechArray = speechString.split(" ");
   let originalArray = originalText.split(" ");
 
   for (let i = 0; i < originalArray.length; i++) {
-    let newWordObject = new CreateNewWord(originalArray[i]);
+    let newWordObject = new CreateNewWord(originalArray[i], originalContainer);
     originalWordObjectArray.push(newWordObject);
     //console.log(originalWordObjectArray[i].word)
-    originalWordObjectArray[i].word.parent(parentDiv); //adds div attributes to the parentDiv
+    originalWordObjectArray[i].word.parent(originalContainer); //adds div attributes to the parentDiv
+  }
+
+  for (let i = 0; i < speechArray.length; i++) {
+    let newWordObject = new CreateNewWord(speechArray[i], speechContainer);
+    speechWordObjectArray.push(newWordObject);
+    //console.log(originalWordObjectArray[i].word)
+    speechWordObjectArray[i].word.parent(speechContainer); //adds div attributes to the parentDiv
   }
 
   //sentences are same length
   if (speechArray.length == originalArray.length) {
     for (let i = 0; i < speechArray.length; i++) {
-        originalWordObjectArray[i].userCorrect = speechArray[j] == originalArray[i] ? true:false;
+      speechWordObjectArray[j].changeStatus(speechArray[j] == originalArray[i] ? 0 : 1);
     }
   }
 
@@ -25,24 +42,29 @@ function checkSpeech(speechString, originalText){
     let j = 0;
     for (let i = 0; i < originalArray.length; i++) {
       if (j >= speechArray.length) break;
-      if (speechArray[j] == originalArray[i]){
-       originalWordObjectArray[i].userCorrect = true;
-     } else {
-       while (originalArray.slice(i, originalArray.length).indexOf(speechArray[j]) == -1) {
-        console.log(speechArray[j], i);
-         redundentWords.push(speechArray[j]);
-         j++;
-         if (j > speechArray.length) {
-           break;
-         }
-       } console.log(speechArray[j], originalArray[i]);
-       originalWordObjectArray[i].userCorrect = speechArray[j] == originalArray[i] ? true:false;
-     }
+      if (speechArray[j] == originalArray[i]) {
+        originalWordObjectArray[i].changeStatus(0);
+        speechWordObjectArray[j].changeStatus(0);
+      } else {
+        while (originalArray.slice(i, originalArray.length).indexOf(speechArray[j]) == -1) {
+          //console.log(speechArray[j], i);
+          //redundentWords.push(speechArray[j]);
+          speechWordObjectArray[j].changeStatus(2);
+
+          j++;
+          if (j > speechArray.length) {
+            break;
+          }
+        }
+        //console.log(speechArray[j], originalArray[i]);
+        originalWordObjectArray[i].changeStatus(speechArray[j] == originalArray[i] ? 0 : 1);
+        speechWordObjectArray[j].changeStatus(speechArray[j] == originalArray[i] ? 0 : 1);
+      }
       j++;
     }
   }
   for (let i = 0; i < originalWordObjectArray.length; i++) {
-    console.log(originalWordObjectArray[i].userCorrect);
+    console.log(speechWordObjectArray[i]);
   }
 }
 

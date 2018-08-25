@@ -8,7 +8,7 @@ function setup() {
   canvas.parent("sketch");
   changePage(0);
   background(255);
-  checkSpeech("I want to eat lots of cheese", "I love to eat cheese");
+
 }
 
 function drawBackObjects(State) {

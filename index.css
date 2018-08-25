@@ -190,3 +190,19 @@ html, body {
     user-select: none;
   }
 }
+
+.container{
+  display:block;
+  position:relative;
+  width:40%;
+  height:50%;
+  float:left;
+  padding: 20px 20px;
+  margin: 20px;
+  overflow-y: scroll;
+}
+
+.word{
+  display:inline-block;
+  margin: 2px;
+}

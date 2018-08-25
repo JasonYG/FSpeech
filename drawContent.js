@@ -228,7 +228,7 @@ function drawContent(Page) {
 
     header = createElement("h2", "Step 3: Review");
     header.parent(divHeader);
-
+    /*
     divText = createDiv();
     divText.class("reviewBox");
     divText.parent("content");
@@ -244,6 +244,9 @@ function drawContent(Page) {
     speechText.elt.cols = "80";
     speechText.elt.rows = "20";
     speechText.parent(divText);
+    */
+
+    checkSpeech("I like to eat cheese", "I want to eat a lot of cheese");
 
     divButton = createDiv();
     divButton.parent("content");
