@@ -141,19 +141,23 @@ function drawContent(Page) {
   if (page == 2) {
     let divHeader;
     let divText;
+    let divButton;
+    let divNext;
+
     let header;
     let text;
     let button;
+    let buttonNext;
 
     divHeader = createDiv();
-      divHeader.class("header2");
+    divHeader.class("header2");
     divHeader.parent("content");
 
     header = createElement("h2", "Step 2: Record Yourself");
     header.parent(divHeader);
 
     divButton = createDiv();
-    divButton.class("nextButton");
+    divButton.class("recButton");
     divButton.parent("content")
 
     button = createButton("");
@@ -165,6 +169,17 @@ function drawContent(Page) {
     buttonIcon.class("fa fa-microphone");
     buttonIcon.parent(button);
 
+    divNext = createDiv();
+    divNext.class("nextButton");
+    divNext.parent("content");
+    divNext.hide();
+
+    buttonNext = createButton("Next");
+    buttonNext.mouseReleased(next);
+    buttonNext.class("button");
+    buttonNext.parent(divNext);
+
+
     divText = createDiv();
     divText.class("tBoxRO");
     divText.parent("content");
@@ -175,8 +190,20 @@ function drawContent(Page) {
 
 
     function recStart() {
-      alert("Recording Started!");
-      removeElements();
+      //alert("Recording Started!");
+      buttonIcon.class("fa fa-stop");
+      button.mouseReleased(recStop);
+      divNext.hide();
+    }
+
+    function recStop(){
+      buttonIcon.class("fa fa-repeat");
+      button.mouseReleased(recStart);
+      divNext.show();
+      //changePage(3);
+    }
+
+    function next(){
       changePage(3);
     }
 

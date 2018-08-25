@@ -118,6 +118,15 @@ html, body {
   width:100%;
   top:80%;
 }
+
+.recButton{
+  display:inline-block;
+  position:absolute;
+  text-align: center;
+  width:100%;
+  top:60%;
+}
+
 .tBoxRO{
   display: inline-block: ;
   position: absolute;
@@ -125,7 +134,7 @@ html, body {
   top:50%;
   text-align: center;
   font-size:1em;
-  
+
 }
 
 .fade-in{
