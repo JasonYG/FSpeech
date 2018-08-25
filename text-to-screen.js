@@ -27,7 +27,7 @@ function setup() {
   // array to store CreateNewWord objects
   let allWordsArray = [];
 
-  parentDiv = createDiv("This is the parent.");
+  parentDiv = createDiv(); //parent container holding divs from CreateNewWord objects
 
   // creates div objects inside word objects and pushes it into 1 array
   for (let i = 0; i < testSentenceArr.length; i++){
@@ -35,26 +35,49 @@ function setup() {
     allWordsArray.push(newWord);
     allWordsArray[i].word.parent(parentDiv); //adds div attributes to the parentDiv
   }
+  console.log(parentDiv);
 
+  // manipulating the div container
+  parentDiv.position(50, 50);
+
+  // changeColor(allWordsArray, true);
 
 }
+
+// function changeColor(allWordsArray, userCorrect) {
+//   //change text color
+//   var divcolor = allWordsArray[1].word.style.Color;
+//   allWordsArray[1].word.style.Color = "00ced1";
+// }
 
 function draw() {
   background(160);
 }
 
-// word class
+// class for individual words as objects
 function CreateNewWord(word) {
   //create a new word which will go into a list of words
   this.word = createDiv(word);
-  this.color = (255, 255, 255);
+  this.color = "white";
   this.x_pos = 0;
   this.y_pos = 0;
-  this.read_correct = null; //boolean for the user reading the word
+  this.userCorrect = false; //boolean for the user reading the word
 
-  // draw the word (loop this)
+  // draw the word (loop this) - phased out for divs
   this.drawWord = function(x, y) {
     fill(this.color);
     text(word, x, y);
+  }
+
+  //changing the Color
+  this.changeColor = function(userCorrect){
+    if (userCorrect){
+      //color to green
+      this.word.style.Color = "green";
+    }
+    else{
+      //color to red
+      this.word.style.Color = "red";
+    }
   }
 }
