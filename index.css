@@ -111,12 +111,28 @@ html, body {
 
 .fade-in{
   animation: fade-in 0.7s;
+}
+
+.fade-in-header{
+
+  animation: fade-in 3s;
+  animation-fill-mode: forwards;
+}
+
+.fade-in-para{
+
+  animation: fade-in 4s;
+  animation-fill-mode: forwards;
+}
+
+.fade-in-button{
+
+  animation: fade-in 5s;
   animation-fill-mode: forwards;
 }
 
 .fade-out{
   animation: fade-out 0.7s;
-  animation-fill-mode: forwards;
 }
 
 @keyframes fade-in{
