@@ -11,17 +11,17 @@ function preload() {
   font = loadFont('assets/Roboto-Light.ttf');
 }
 
-function setup() {
-  canvas = createCanvas(720, 480);
-  canvas.position(250);
-
-  // Set text characteristics
-  textFont(font);
-  textSize(fontsize);
-  textAlign(CENTER, CENTER);
-
-  drawSentence();
-}
+// function setup() {
+//   canvas = createCanvas(720, 480);
+//   canvas.position(250);
+//
+//   // Set text characteristics
+//   textFont(font);
+//   textSize(fontsize);
+//   textAlign(CENTER, CENTER);
+//
+//   drawSentence();
+// }
 
 function drawSentence() {
   // turning the user's input into an array
@@ -41,17 +41,14 @@ function drawSentence() {
   }
 
   // manipulating the div container
-  parentDiv.position(50, 50);
-}
-
-function draw() {
-  background(160);
 }
 
 // class for individual words as objects
 function CreateNewWord(word) {
   //create a new word which will go into a list of words
   this.word = createDiv(word);
+  this.wordText = word;
+  this.status = null;
   this.color = "white";
   this.x_pos = 0;
   this.y_pos = 0;
