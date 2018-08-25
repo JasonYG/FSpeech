@@ -1,11 +1,11 @@
 let input;
 
-function changePage(Page){
+function changePage(Page) {
   let page = Page;
   let content = select("#content");
   content.removeClass("fade-in");
   content.addClass("fade-out");
-  setTimeout(function () {
+  setTimeout(function() {
     content.removeClass("fade-out");
     content.addClass("fade-in");
     drawContent(page);
@@ -109,7 +109,9 @@ function drawContent(Page) {
     divButton.parent(content);
 
     button = createButton("Get started");
-    button.mouseReleased(function() { changePage(1);});
+    button.mouseReleased(function() {
+      changePage(1);
+    });
     button.class("button");
     button.parent(divButton);
 
@@ -126,7 +128,7 @@ function drawContent(Page) {
     divHeader.class("header2");
     divHeader.parent(content);
 
-    header = createElement("h2","Step 1: Input Text and Press Enter");
+    header = createElement("h2", "Step 1: Input Text and Press Enter");
     header.parent(divHeader);
 
     divObjects = createDiv();
@@ -158,10 +160,10 @@ function drawContent(Page) {
       input = inbox.value();
 
       var check = Boolean(input);
-      if (check){
+      if (check) {
         removeElements();
         changePage(2);
-      }else{
+      } else {
         alert("You didn't type in anything!")
       }
 
@@ -178,22 +180,22 @@ function drawContent(Page) {
 
     divHeader = createDiv();
     divHeader.parent("content");
-    header = createElement("h2","Step 2: Record Yourself");
-    header.position(20,-5);
+    header = createElement("h2", "Step 2: Record Yourself");
+    header.position(20, -5);
     header.parent(divHeader);
     button = createButton("Record");
-    button.position(500,20);
+    button.position(500, 20);
     button.mouseReleased(recStart);
     button.parent(divHeader);
 
     divText = createDiv();
-    divText.class("para");
+    divText.class("textBox");
     divText.parent("content");
-    text = createElement("p",input);
+    text = createElement("p", input);
     text.parent(divText);
 
 
-    function recStart(){
+    function recStart() {
       alert("Recording Started!");
       removeElements();
       changePage(3);
@@ -207,8 +209,8 @@ function drawContent(Page) {
 
     divHeader = createDiv();
     divHeader.parent("content");
-    header = createElement("h2","Loading... ");
-    header.position(20,-5);
+    header = createElement("h2", "Loading... ");
+    header.position(20, -5);
     header.parent(divHeader);
 
     alert("Finished Loading!");
@@ -225,11 +227,11 @@ function drawContent(Page) {
 
     divHeader = createDiv();
     divHeader.parent("content");
-    header = createElement("h2","Step 3: Review ");
-    header.position(20,-5);
+    header = createElement("h2", "Step 3: Review ");
+    header.position(20, -5);
     header.parent(divHeader);
     button = createButton("Try Again?");
-    button.position(500,20);
+    button.position(500, 20);
     button.mouseReleased(recStart);
     button.parent(divHeader);
 
@@ -237,10 +239,10 @@ function drawContent(Page) {
     divText = createDiv();
     divText.class("para");
     divText.parent("content");
-    text = createElement("p",input);
+    text = createElement("p", input);
     text.parent(divText);
 
-    function recStart(){
+    function recStart() {
       removeElements();
       changePage(1);
     }
