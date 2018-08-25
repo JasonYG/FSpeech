@@ -35,20 +35,11 @@ function setup() {
     allWordsArray.push(newWord);
     allWordsArray[i].word.parent(parentDiv); //adds div attributes to the parentDiv
   }
-  console.log(parentDiv);
 
   // manipulating the div container
   parentDiv.position(50, 50);
-
-  // changeColor(allWordsArray, true);
-
 }
 
-// function changeColor(allWordsArray, userCorrect) {
-//   //change text color
-//   var divcolor = allWordsArray[1].word.style.Color;
-//   allWordsArray[1].word.style.Color = "00ced1";
-// }
 
 function draw() {
   background(160);
@@ -63,21 +54,14 @@ function CreateNewWord(word) {
   this.y_pos = 0;
   this.userCorrect = false; //boolean for the user reading the word
 
-  // draw the word (loop this) - phased out for divs
-  this.drawWord = function(x, y) {
-    fill(this.color);
-    text(word, x, y);
-  }
-
   //changing the Color
   this.changeColor = function(userCorrect){
+    console.log("Color changing!");
     if (userCorrect){
       //color to green
-      this.word.style.Color = "green";
     }
     else{
       //color to red
-      this.word.style.Color = "red";
     }
   }
 }
