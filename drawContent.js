@@ -8,7 +8,7 @@ function changePage(Page) {
     animationHandler = 0;
     currentState = 2;
   }
-  if(page == 2){
+  if(page == 4){
     animationHandler = 0;
     currentState = 4;
   }
@@ -21,7 +21,7 @@ function changePage(Page) {
 
     if(page == 0){
       currentState = 0;
-    }else if(page == 2){
+    }else if(page == 4){
       currentState = 3;
     }
     else{
@@ -44,64 +44,6 @@ function drawContent(Page) {
 
   let content = select("#content");
 
-
-  if (page == -1) {
-    //test page
-    let inbox;
-    let outbox;
-    let recStartB;
-    let recStopB;
-
-    let divInbox;
-    let divButton;
-    let divOutbox;
-
-    divInbox = createDiv();
-    divInbox.parent(content);
-
-    inbox = createElement("textarea");
-    inbox.elt.placeholder = "input goes here";
-    inbox.elt.cols = "50";
-    inbox.elt.rows = "4";
-    inbox.parent(divInbox);
-
-    divButton = createDiv();
-    divButton.parent(content);
-
-    recStartB = createButton("record");
-    recStartB.mouseReleased(recStart);
-    recStartB.parent(divButton);
-
-    recStopB = createButton("stop recording");
-    recStopB.mouseReleased(recStop);
-    recStopB.parent(divButton);
-
-    divOutbox = createDiv();
-    divOutbox.parent(content);
-
-    outbox = createElement("textarea");
-    outbox.elt.placeholder = "output goes here";
-    outbox.elt.cols = "50";
-    outbox.elt.rows = "4";
-    outbox.parent(divOutbox);
-
-    function recStart() {
-      //start recording here
-      let input;
-      input = inbox.value();
-      console.log(input);
-    }
-
-    function recStop() {
-      //stop recording, save, put in text to speech, paste into output
-      let output;
-      outbox.value(output);
-      console.log(output);
-    }
-
-  }
-
-
   if (page == 0) {
     let divText;
     let divHeader;
@@ -113,7 +55,7 @@ function drawContent(Page) {
 
 
     divHeader = createDiv();
-    divHeader.class("header fade-in-header");
+    divHeader.class("header");
     divHeader.parent(content);
 
     header = createElement("h1", "placeholder");
@@ -123,14 +65,14 @@ function drawContent(Page) {
     divButton.parent(content);
 
     divPara = createDiv();
-    divPara.class("para fade-in-para");
+    divPara.class("para");
     divPara.parent(content);
 
     para = createElement("p", "yaw yeet");
     para.parent(divPara);
 
     divButton = createDiv();
-    divButton.class("launchButton fade-in-button");
+    divButton.class("launchButton");
     divButton.parent(content);
 
     button = createButton("Get started");
@@ -204,14 +146,24 @@ function drawContent(Page) {
     let button;
 
     divHeader = createDiv();
+      divHeader.class("header2");
     divHeader.parent("content");
+
     header = createElement("h2", "Step 2: Record Yourself");
-    header.position(20, -5);
     header.parent(divHeader);
-    button = createButton("Record");
-    button.position(500, 20);
+
+    divButton = createDiv();
+    divButton.class("nextButton");
+    divButton.parent("content")
+
+    button = createButton("");
     button.mouseReleased(recStart);
-    button.parent(divHeader);
+    button.class("buttonIcon");
+    button.parent(divButton);
+
+    buttonIcon = createElement("i");
+    buttonIcon.class("fa fa-microphone");
+    buttonIcon.parent(button);
 
     divText = createDiv();
     divText.class("tBoxRO");
@@ -236,6 +188,8 @@ function drawContent(Page) {
 
     divHeader = createDiv();
     divHeader.parent("content");
+    divHeader.class("header2");
+
     header = createElement("h2", "Loading... ");
     header.position(20, -5);
     header.parent(divHeader);
@@ -254,21 +208,24 @@ function drawContent(Page) {
 
     divHeader = createDiv();
     divHeader.parent("content");
+    divHeader.class("header2");
+
     header = createElement("h2", "Step 3: Review ");
-    header.position(20, -5);
     header.parent(divHeader);
+
     button = createButton("Try Again?");
     button.position(500, 20);
     button.mouseReleased(recStart);
+    button.class("button");
     button.parent(divHeader);
 
-
+/*
     divText = createDiv();
     divText.class("para");
     divText.parent("content");
     text = createElement("p", input);
     text.parent(divText);
-
+*/
     function recStart() {
       removeElements();
       changePage(1);
