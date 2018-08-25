@@ -27,36 +27,21 @@ function setup() {
   // array to store word objects
   let allWordsArray = [];
 
+  parentDiv = createDiv("This is the parent.");
+
+  // creates div objects inside word objects and pushes it into 1 array
   for (let i = 0; i < testSentenceArr.length; i++){
     let newWord = new CreateNewWord(testSentenceArr[i]);
     allWordsArray.push(newWord);
+    allWordsArray[i].word.parent(parentDiv); //adds div attributes to the parentDiv
   }
 
-  
+
 
 }
 
 function draw() {
   background(160);
-  //
-  // let testSentence = sentenceInput();
-  // let testSentenceArr = testSentence.split(" ");
-  //
-  // let allWordsArray = [];
-  //
-  // //create array of words aka a sentence
-  // for (let i = 0; i < testSentenceArr.length; i++){
-  //   let newWord = new CreateNewWord(testSentenceArr[i]);
-  //   allWordsArray.push(newWord);
-  // }
-  //
-  // // rendering each word in a loop
-  // // spacing is wack
-  // let counter = 0;
-  // for (let j = 0; j < allWordsArray.length; j++){
-  //   counter += 50;
-  //   allWordsArray[j].drawWord(100 + counter, 100);
-  // }
 }
 
 // word class
@@ -66,6 +51,7 @@ function CreateNewWord(word) {
   this.color = (255, 255, 255);
   this.x_pos = 0;
   this.y_pos = 0;
+  this.read_correct = null;
 
   // draw the word (loop this)
   this.drawWord = function(x, y) {
