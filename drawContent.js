@@ -4,26 +4,25 @@ function changePage(Page) {
   let page = Page;
   let content = select("#content");
 
-  if(page == 1){
+  if (page == 1) {
     animationHandler = 0;
     currentState = 2;
   }
-  if(page == 3){
+  if (page == 3) {
     animationHandler = 0;
     currentState = 4;
   }
 
   content.style("animation", "fade-out 0.7s");
-  setTimeout(function () {
+  setTimeout(function() {
     content.style("animation", "none");
     content.style("animation", "fade-in 0.7s");
 
-    if(page == 0){
+    if (page == 0) {
       currentState = 0;
-    }else if(page == 3){
+    } else if (page == 3) {
       currentState = 3;
-    }
-    else{
+    } else {
       currentState = 1;
 
     }
@@ -197,17 +196,18 @@ function drawContent(Page) {
       //alert("Recording Started!");
       buttonIcon.class("fa fa-stop");
       button.mouseReleased(recStop);
+      speechToText();
       divNext.hide();
     }
 
-    function recStop(){
+    function recStop() {
       buttonIcon.class("fa fa-repeat");
       button.mouseReleased(recStart);
       divNext.show();
       //changePage(3);
     }
 
-    function next(){
+    function next() {
       changePage(3);
     }
 
