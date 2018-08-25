@@ -59,12 +59,9 @@ function drawContent(Page) {
 
   }
 
-<<<<<<< HEAD
+
   if (page == 0) {
-=======
-  if(page == 0){
     let divText;
->>>>>>> b3701deac328bafc6b4bdc785ea6bef2ade85752
     let divHeader;
     let divPara;
     let divButton;
@@ -80,22 +77,9 @@ function drawContent(Page) {
     header = createElement("h1", "placeholder");
     header.parent(divHeader);
 
-<<<<<<< HEAD
     divButton = createDiv();
     divButton.parent("content");
 
-    recStartB = createButton("Start");
-    recStartB.position (625, 450);
-    recStartB.mouseReleased(recStart);
-    recStartB.parent(divButton);
-
-
-    function recStart() {
-      //start recording here
-      removeElements();
-      drawContent(1);
-    }
-=======
     divPara = createDiv();
     divPara.class("para");
     divPara.parent("content");
@@ -108,9 +92,8 @@ function drawContent(Page) {
     divButton.parent("content");
 
     button = createButton("Get started");
-    button.mouseReleased(function() { drawContent();});
+    button.mouseReleased(function() { drawContent(1);});
     button.parent(divButton);
->>>>>>> b3701deac328bafc6b4bdc785ea6bef2ade85752
 
   }
   if (page == 1) {
@@ -119,7 +102,7 @@ function drawContent(Page) {
     let divInbox;
     let divButton;
 
-  
+
     divInbox = createDiv();
     divInbox.parent("content");
 
