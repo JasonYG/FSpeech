@@ -15,14 +15,14 @@ function drawBackObjects(State){
     noStroke();
     fill(200, 200, 200);
     rect(0, 0, windowWidth, windowHeight);
-    fill(100, 100, 100);
+    fill(190, 0, 0);
     rect(0, 0, windowWidth, windowHeight/2);
   }
   if(state == 1){
     noStroke();
     fill(200, 200, 200);
     rect(0, 0, windowWidth, windowHeight);
-    fill(100, 100, 100);
+    fill(190, 0, 0);
     rect(0, 0, windowWidth, 95);
   }
 
@@ -30,7 +30,7 @@ function drawBackObjects(State){
     noStroke();
     fill(200, 200, 200);
     rect(0, 0, windowWidth, windowHeight);
-    fill(100, 100, 100);
+    fill(190, 0, 0);
     rect(0, 0, windowWidth, windowHeight/2-(windowHeight/2-95)/animationTime*(animationHandler+1));
   }
 
@@ -38,7 +38,7 @@ function drawBackObjects(State){
     noStroke();
     fill(200, 200, 200);
     rect(0, 0, windowWidth, windowHeight);
-    fill(100, 100, 100);
+    fill(190, 0, 0);
     rect(0, 0, windowWidth, windowHeight);
   }
 
@@ -46,7 +46,7 @@ function drawBackObjects(State){
     noStroke();
     fill(200, 200, 200);
     rect(0, 0, windowWidth, windowHeight);
-    fill(100, 100, 100);
+    fill(190, 0, 0);
     rect(0, 0, windowWidth, 95+(windowHeight-95)/animationTime*(animationHandler+1));
   }
 

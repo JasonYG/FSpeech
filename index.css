@@ -33,12 +33,14 @@ html, body {
   text-align: center;
   top:20%;
   font-size:3em;
+  color: white;
   padding: 0;
 }
 
 .para{
   display:inline-block;
   position:relative;
+  color: white;
   width:100%;
   top:10%;
   text-align: center;
@@ -46,11 +48,12 @@ html, body {
 }
 
 .launchButton{
-  display:inline-block;
+  display:block;
   position:relative;
+  padding:20px 0px;
   text-align: center;
   width:100%;
-  top:30%;
+  top:0%;
 }
 
 .objects{
@@ -66,9 +69,11 @@ html, body {
   top:-5px;
   left:20px;
   white-space: nowrap;
+  color: white;
 }
 
 .inbox{
+  display: inline-block;
   position: relative;
   text-align: center;
   margin:auto;
@@ -87,12 +92,14 @@ html, body {
 }
 
 .button{
+  position: relative;
   border:none;
   cursor:pointer;
   text-align: center;
   font-size: 1em;
   padding:15px 50px;
   background-color: #4CAF50;
+  color: white;
 }
 
 .buttonIcon{
@@ -121,42 +128,34 @@ html, body {
 }
 
 .reviewBox textarea{
+  margin: 10px;
+  position: relative;
   resize: none;
   outline: none;
   overflow: auto;
   width: calc(50vw - 10%);
   height:inherit;
   font-family: Tahoma, sans-serif;
-  background:transparent;
+  background:white;
   border:none;
   border-radius: 5px;
 }
 
 .nextButton{
   display:inline-block;
-  position:absolute;
+  position:relative:;
   text-align: center;
   width:100%;
-  top:80%;
-}
+  }
 
 .recButton{
   display:inline-block;
-  position:absolute;
+  position:relative;
   text-align: center;
   width:100%;
   top:60%;
 }
 
-.tBoxRO{
-  display: inline-block: ;
-  position: absolute;
-  width:100%;
-  top:50%;
-  text-align: center;
-  font-size:1em;
-
-}
 
 .fade-in{
   animation: fade-in 0.7s;
