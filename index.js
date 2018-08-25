@@ -1,13 +1,13 @@
-let inbox;
-let outbox;
-let b_rec_start;
-let b_rec_stop;
-
-let input;
-let output;
 
 function setup() {
-  noCanvas();
+  let inbox;
+  let outbox;
+  let b_rec_start;
+  let b_rec_stop;
+
+  let input;
+  let output;
+
   inbox = createElement("textarea");
   inbox.elt.placeholder = "input goes here";
   inbox.elt.cols = "50";
