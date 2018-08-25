@@ -2,7 +2,10 @@ function drawContent(Page) {
   let page = Page;
   removeElements();
 
-
+  let content = select("#content");
+  content.removeClass("fade-in");
+  content.addClass("fade-in");
+  console.log(content.class());
   if (page == -1) {
     //test page
     let inbox;
@@ -15,7 +18,7 @@ function drawContent(Page) {
     let divOutbox;
 
     divInbox = createDiv();
-    divInbox.parent("content");
+    divInbox.parent(content);
 
     inbox = createElement("textarea");
     inbox.elt.placeholder = "input goes here";
@@ -24,7 +27,7 @@ function drawContent(Page) {
     inbox.parent(divInbox);
 
     divButton = createDiv();
-    divButton.parent("content");
+    divButton.parent(content);
 
     recStartB = createButton("record");
     recStartB.mouseReleased(recStart);
@@ -35,7 +38,7 @@ function drawContent(Page) {
     recStopB.parent(divButton);
 
     divOutbox = createDiv();
-    divOutbox.parent("content");
+    divOutbox.parent(content);
 
     outbox = createElement("textarea");
     outbox.elt.placeholder = "output goes here";
@@ -72,27 +75,28 @@ function drawContent(Page) {
 
     divHeader = createDiv();
     divHeader.class("header");
-    divHeader.parent("content");
+    divHeader.parent(content);
 
     header = createElement("h1", "placeholder");
     header.parent(divHeader);
 
     divButton = createDiv();
-    divButton.parent("content");
+    divButton.parent(content);
 
     divPara = createDiv();
     divPara.class("para");
-    divPara.parent("content");
+    divPara.parent(content);
 
     para = createElement("p", "yaw yeet");
     para.parent(divPara);
 
     divButton = createDiv();
     divButton.class("launchButton");
-    divButton.parent("content");
+    divButton.parent(content);
 
     button = createButton("Get started");
     button.mouseReleased(function() { drawContent(1);});
+    button.class("button");
     button.parent(divButton);
 
   }
@@ -102,34 +106,36 @@ function drawContent(Page) {
     let bar;
     let divInbox;
     let divButton;
+    let divObjects;
 
     divHeader = createDiv();
-    divHeader.parent("content");
-    bar = rect(13, 1, 600, 55, 20, 15, 10, 5);
+    divHeader.class("header2");
+    divHeader.parent(content);
+
     header = createElement("h2","Step 1: Input Text and press Enter!");
-    header.position(20,-5);
     header.parent(divHeader);
 
-
-
-
+    divObjects = createDiv();
+    divObjects.class("objects");
+    divObjects.parent(content)
 
     divInbox = createDiv();
-    divInbox.parent("content");
+    divInbox.class("inbox");
+    divInbox.parent(divObjects);
 
     inbox = createElement("textarea");
-    inbox.position(350,200);
     inbox.elt.placeholder = "input goes here";
     inbox.elt.cols = "80";
     inbox.elt.rows = "15";
     inbox.parent(divInbox);
 
     divButton = createDiv();
-    divButton.parent("content");
+    divButton.class("nextButton");
+    divButton.parent(divObjects);
 
     recStartB = createButton("Enter");
-    recStartB.position (625, 450);
     recStartB.mouseReleased(recStart);
+    recStartB.class("button");
     recStartB.parent(divButton);
 
 
@@ -138,7 +144,6 @@ function drawContent(Page) {
       let input;
       input = inbox.value();
       console.log(input); //For Testing Purposes
-      removeElements();
       drawContent(2);
     }
 
