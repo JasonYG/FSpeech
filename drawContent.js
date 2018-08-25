@@ -151,7 +151,7 @@ function drawContent(Page) {
     divHeader.class("header2");
     divHeader.parent(content);
 
-    header = createElement("h2","Step 1: Input Text and press Enter!");
+    header = createElement("h2","Step 1: Input Text and Press Enter");
     header.parent(divHeader);
 
     divObjects = createDiv();
@@ -200,11 +200,10 @@ function drawContent(Page) {
     let header;
     let text;
     let button;
-    let para;
 
     divHeader = createDiv();
     divHeader.parent("content");
-    header = createElement("h2","Step 2: Record Yourself!");
+    header = createElement("h2","Step 2: Record Yourself");
     header.position(20,-5);
     header.parent(divHeader);
     button = createButton("Record");
@@ -217,9 +216,6 @@ function drawContent(Page) {
     divText.parent("content");
     text = createElement("p",input);
     text.parent(divText);
-
-
-
 
 
     function recStart(){
@@ -254,7 +250,7 @@ function drawContent(Page) {
 
     divHeader = createDiv();
     divHeader.parent("content");
-    header = createElement("h2","Step 3: Review!");
+    header = createElement("h2","Step 3: Review ");
     header.position(20,-5);
     header.parent(divHeader);
     button = createButton("Try Again?");
