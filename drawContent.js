@@ -4,13 +4,10 @@ function drawContent(Page) {
   let page = Page;
   removeElements();
 
-<<<<<<< HEAD
   let content = select("#content");
   content.removeClass("fade-in");
   content.addClass("fade-in");
   console.log(content.class());
-=======
->>>>>>> 517b71df5b5db8ea4e2f42e653c564ffba6116b8
   if (page == -1) {
     //test page
     let inbox;
@@ -114,24 +111,16 @@ function drawContent(Page) {
     let divObjects;
 
     divHeader = createDiv();
-<<<<<<< HEAD
     divHeader.class("header2");
     divHeader.parent(content);
 
-=======
-    divHeader.parent("content");
-    rect(13, 1, 600, 55, 20, 15, 10, 5);
->>>>>>> 517b71df5b5db8ea4e2f42e653c564ffba6116b8
     header = createElement("h2","Step 1: Input Text and press Enter!");
     header.parent(divHeader);
 
-<<<<<<< HEAD
     divObjects = createDiv();
     divObjects.class("objects");
     divObjects.parent(content)
 
-=======
->>>>>>> 517b71df5b5db8ea4e2f42e653c564ffba6116b8
     divInbox = createDiv();
     divInbox.class("inbox");
     divInbox.parent(divObjects);
@@ -155,10 +144,7 @@ function drawContent(Page) {
     function recStart() {
       //start recording here
       input = inbox.value();
-<<<<<<< HEAD
-      console.log(input); //For Testing Purposes
-      drawContent(2);
-=======
+
       var check = Boolean(input);
       if (check){
         removeElements();
@@ -168,7 +154,6 @@ function drawContent(Page) {
         drawContent(1);
       }
 
->>>>>>> 517b71df5b5db8ea4e2f42e653c564ffba6116b8
     }
 
 
