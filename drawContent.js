@@ -1,5 +1,3 @@
-let input;
-
 function changePage(Page) {
   let page = Page;
   let content = select("#content");
@@ -196,13 +194,14 @@ function drawContent(Page) {
       //alert("Recording Started!");
       buttonIcon.class("fa fa-stop");
       button.mouseReleased(recStop);
-      speechToText();
+      speechToText("START");
       divNext.hide();
     }
 
     function recStop() {
       buttonIcon.class("fa fa-repeat");
       button.mouseReleased(recStart);
+      speechToText("STOP");
       divNext.show();
       //changePage(3);
     }
