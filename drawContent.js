@@ -184,22 +184,6 @@ function drawContent(Page) {
   }
   if (page == 3) {
     let divHeader;
-    let header;
-
-    divHeader = createDiv();
-    divHeader.parent("content");
-    divHeader.class("header2");
-
-    header = createElement("h2", "Loading... ");
-    header.position(20, -5);
-    header.parent(divHeader);
-
-    alert("Finished Loading!");
-    changePage(4);
-
-  }
-  if (page == 4) {
-    let divHeader;
     let divText;
     let header;
     let button;
