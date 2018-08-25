@@ -60,11 +60,14 @@ function drawContent(Page=-1){
   }
 
   if(page == 0){
+    let divText;
     let divHeader;
-    let div_paragraph;
+    let divPara;
     let divButton;
 
     let header;
+    let para;
+
 
     divHeader = createDiv();
     divHeader.class("header");
@@ -72,6 +75,21 @@ function drawContent(Page=-1){
 
     header = createElement("h1", "placeholder");
     header.parent(divHeader);
+
+    divPara = createDiv();
+    divPara.class("para");
+    divPara.parent("content");
+
+    para = createElement("p", "yaw yeet");
+    para.parent(divPara);
+
+    divButton = createDiv();
+    divButton.class("launchButton");
+    divButton.parent("content");
+
+    button = createButton("Get started");
+    button.mouseReleased(function() { drawContent();});
+    button.parent(divButton);
 
   }
   if(page == 1){
