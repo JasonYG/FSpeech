@@ -98,9 +98,20 @@ function drawContent(Page) {
   }
   if (page == 1) {
     let inbox;
-
+    let header;
+    let bar;
     let divInbox;
     let divButton;
+
+    divHeader = createDiv();
+    divHeader.parent("content");
+    bar = rect(13, 1, 600, 55, 20, 15, 10, 5);
+    header = createElement("h2","Step 1: Input Text and press Enter!");
+    header.position(20,-5);
+    header.parent(divHeader);
+
+
+
 
 
     divInbox = createDiv();
