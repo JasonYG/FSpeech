@@ -4,21 +4,22 @@ let animationHandler = -1;
 let animationTime = 30;
 
 function setup() {
-  canvas  = createCanvas(windowWidth, windowHeight);
+  canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent("sketch");
   changePage(0);
   background(255);
 }
-function drawBackObjects(State){
+
+function drawBackObjects(State) {
   let state = State;
-  if(state == 0){
+  if (state == 0) {
     noStroke();
     fill(200, 200, 200);
     rect(0, 0, windowWidth, windowHeight);
     fill(100, 100, 100);
-    rect(0, 0, windowWidth, windowHeight/2);
+    rect(0, 0, windowWidth, windowHeight / 2);
   }
-  if(state == 1){
+  if (state == 1) {
     noStroke();
     fill(200, 200, 200);
     rect(0, 0, windowWidth, windowHeight);
@@ -26,15 +27,15 @@ function drawBackObjects(State){
     rect(0, 0, windowWidth, 95);
   }
 
-  if(state == 2){
+  if (state == 2) {
     noStroke();
     fill(200, 200, 200);
     rect(0, 0, windowWidth, windowHeight);
     fill(100, 100, 100);
-    rect(0, 0, windowWidth, windowHeight/2-(windowHeight/2-95)/animationTime*(animationHandler+1));
+    rect(0, 0, windowWidth, windowHeight / 2 - (windowHeight / 2 - 95) / animationTime * (animationHandler + 1));
   }
 
-  if(state == 3){
+  if (state == 3) {
     noStroke();
     fill(200, 200, 200);
     rect(0, 0, windowWidth, windowHeight);
@@ -42,33 +43,34 @@ function drawBackObjects(State){
     rect(0, 0, windowWidth, windowHeight);
   }
 
-  if(state == 4){
+  if (state == 4) {
     noStroke();
     fill(200, 200, 200);
     rect(0, 0, windowWidth, windowHeight);
     fill(100, 100, 100);
-    rect(0, 0, windowWidth, 95+(windowHeight-95)/animationTime*(animationHandler+1));
+    rect(0, 0, windowWidth, 95 + (windowHeight - 95) / animationTime * (animationHandler + 1));
   }
 
 }
+
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
   drawBackObjects(currentState);
 }
 
-function draw(){
-  if(animationHandler != -1 && currentState == 2){
+function draw() {
+  if (animationHandler != -1 && currentState == 2) {
     drawBackObjects(currentState);
     animationHandler++;
-    if(animationHandler == animationTime){
+    if (animationHandler == animationTime) {
       animationHandler = -1;
       currentState = 1;
     }
   }
-  if(animationHandler != -1 && currentState == 4){
+  if (animationHandler != -1 && currentState == 4) {
     drawBackObjects(currentState);
     animationHandler++;
-    if(animationHandler == animationTime){
+    if (animationHandler == animationTime) {
       animationHandler = -1;
       currentState = 3;
     }
