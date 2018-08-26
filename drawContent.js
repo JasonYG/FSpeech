@@ -1,4 +1,4 @@
-let input;
+//let input;
 
 function changePage(Page) {
   let page = Page;

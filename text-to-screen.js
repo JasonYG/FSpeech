@@ -7,7 +7,7 @@ var font, fontsize = 40
 function preload() {
   // Ensure the .ttf or .otf font stored in the assets directory
   // is loaded before setup() and draw() are called
-  font = loadFont('assets/Roboto-Light.ttf');
+  //font = loadFont('assets/Roboto-Light.ttf');
 }
 
 // function setup() {
