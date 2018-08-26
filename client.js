@@ -5,7 +5,7 @@ let voiceRecording = false;
 socket.on('recorded',
   // When we receive data
   function(data) {
-    input += data;
+    input = data;
     console.log(data);
   }
 );
