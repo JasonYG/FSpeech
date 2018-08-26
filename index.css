@@ -160,11 +160,11 @@ html, body {
   }
 
 .recButton{
-  display:inline-block;
+  display:block;
   position:relative;
   text-align: center;
   width:100%;
-  top:60%;
+  top:20%;
 }
 
 .tBoxRO{
@@ -259,7 +259,8 @@ html, body {
   position:relative;
   width:inherit;
   top:10%;
-  height:30%;
+  bottom:10%;
+  height:20%;
   background-color: #800000;
   text-align: right;
   font-size:2.5em;
@@ -289,6 +290,7 @@ html, body {
 .containerHeader{
   font-size:2em;
   line-height: 3px;
+  color:white;
 }
 
 .scoreItem{
