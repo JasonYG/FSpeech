@@ -1,3 +1,5 @@
+let input;
+
 function changePage(Page) {
   let page = Page;
   let content = select("#content");
@@ -28,9 +30,6 @@ function changePage(Page) {
     drawContent(page);
   }, 700);
 
-
-
-
 }
 
 
@@ -47,15 +46,23 @@ function drawContent(Page) {
     let divButton;
 
     let header;
+    let subHeader;
     let para;
-
 
     divHeader = createDiv();
     divHeader.class("header");
     divHeader.parent(content);
 
-    header = createElement("h1", "F Speaking");
+    header = createElement("h1", "F Speaking*");
     header.parent(divHeader);
+
+    divSubHeader = createDiv();
+    divSubHeader.class("subHeader");
+    divSubHeader.parent(divHeader);
+
+    subHeader = createElement("h5", "* the F stands for fix");
+    subHeader.class(subHeader);
+    subHeader.parent(divSubHeader);
 
     divButton = createDiv();
     divButton.parent(content);
@@ -64,7 +71,7 @@ function drawContent(Page) {
     divPara.class("para");
     divPara.parent(content);
 
-    para = createElement("p", "yaw yeet");
+    para = createElement("p", "The absolute best tool to prepare for presentations!");
     para.parent(divPara);
 
     divButton = createDiv();
@@ -94,23 +101,20 @@ function drawContent(Page) {
     header = createElement("h2", "Step 1: Input Text and Press Enter");
     header.parent(divHeader);
 
-    divObjects = createDiv();
-    divObjects.class("objects");
-    divObjects.parent(content);
 
     divInbox = createDiv();
     divInbox.class("inbox");
-    divInbox.parent(divObjects);
+    divInbox.parent("content");
 
     inbox = createElement("textarea");
-    inbox.elt.placeholder = "input goes here";
+    inbox.elt.placeholder = "Input goes here";
     inbox.elt.cols = "80";
     inbox.elt.rows = "15";
     inbox.parent(divInbox);
 
     divButton = createDiv();
     divButton.class("nextButton");
-    divButton.parent(divObjects);
+    divButton.parent("content");
 
     recStartB = createButton("Enter");
     recStartB.mouseReleased(recStart);
@@ -145,8 +149,6 @@ function drawContent(Page) {
     let button;
     let buttonNext;
 
-
-
     divHeader = createDiv();
     divHeader.class("header2");
     divHeader.parent("content");
@@ -155,8 +157,9 @@ function drawContent(Page) {
     header.parent(divHeader);
 
     divText = createDiv();
-    divText.class("inbox");
+    divText.class("inbox outbox");
     divText.parent("content");
+
     text = createElement("textarea", input);
     text.elt.readOnly = "true";
     text.elt.cols = "80";
@@ -165,11 +168,11 @@ function drawContent(Page) {
 
     divButton = createDiv();
     divButton.class("recButton");
-    divButton.parent("content")
+    divButton.parent("content");
 
     button = createButton("");
     button.mouseReleased(recStart);
-    button.class("buttonIcon");
+    button.class("button icon");
     button.parent(divButton);
 
     buttonIcon = createElement("i");
@@ -185,10 +188,6 @@ function drawContent(Page) {
     buttonNext.mouseReleased(next);
     buttonNext.class("button");
     buttonNext.parent(divNext);
-
-
-
-
 
     function recStart() {
       //alert("Recording Started!");
