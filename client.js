@@ -10,12 +10,12 @@ socket.on('recorded',
   }
 );
 
-function speechToText(handler) {
-  if (handler == "START") {
-    console.log("Started Recording");
-    socket.emit('record', true);
-  } else if (handler == "STOP") {
-    console.log("Stopped Recording");
-    socket.emit('record', false);
-  }
+function startSpeechRecognition() {
+  console.log("Started Recording");
+  socket.emit('record');
+}
+
+function stopSpeechRecognition() {
+  console.log("Started Recording");
+  socket.emit('stopRecord');
 }

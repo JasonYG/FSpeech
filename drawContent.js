@@ -193,14 +193,14 @@ function drawContent(Page) {
       //alert("Recording Started!");
       buttonIcon.class("fa fa-stop");
       button.mouseReleased(recStop);
-      speechToText("START");
+      startSpeechRecognition();
       divNext.hide();
     }
 
     function recStop() {
       buttonIcon.class("fa fa-repeat");
       button.mouseReleased(recStart);
-      speechToText("STOP");
+      stopSpeechRecognition();
       divNext.show();
       //changePage(3);
     }
