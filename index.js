@@ -6,9 +6,9 @@ let animationTime = 30;
 function setup() {
   canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent("sketch");
-  changePage(0);
+  changePage(3);
   background(255);
-  checkSpeech("I want to eat lots of cheese", "I love to eat cheese");
+
 }
 
 function drawBackObjects(State) {
