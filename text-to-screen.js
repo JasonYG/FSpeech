@@ -32,6 +32,9 @@ function CreateNewWord(word, Parent) {
   let wordTextObj = createElement("p", word);
   wordTextObj.parent(this.word);
 
+  let wordTextTooltip = createElement("span", "this is a tooltip.");
+  wordTextTooltip.parent(wordTextObj);
+
   this.wordText = word;
   this.color = "white";
   this.status = null; //0 - correct
@@ -42,10 +45,17 @@ function CreateNewWord(word, Parent) {
     //console.log("Color changing!");
     if (Status == 0) {
       this.word.style("color", "green");
+      wordTextTooltip.html("Correct reading");
     } else if (Status == 1) {
       this.word.style("color", "red");
+      wordTextTooltip.html("Wrong reading or misplaced word");
     } else if (Status == 2) {
       this.word.style("color", "yellow");
+      wordTextTooltip.html("Added word");
+      //redundant
+    } else if (Status == 3) {
+      this.word.style("color", "yellow");
+      wordTextTooltip.html("Unsaid word");
       //redundant
     }
   }

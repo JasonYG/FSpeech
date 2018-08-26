@@ -6,7 +6,7 @@ let animationTime = 30;
 function setup() {
   canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent("sketch");
-  changePage(0);
+  changePage(3);
   background(255);
 
 }

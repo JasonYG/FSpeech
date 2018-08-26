@@ -245,7 +245,7 @@ function drawContent(Page) {
     speechText.parent(divText);
     */
 
-    checkSpeech("I like to eat cheese", "I want to eat a lot of cheese");
+    checkSpeech("I want to eat a lot of cheese", "I like to eat cheese");
 
     divButton = createDiv();
     divButton.parent("content");

@@ -204,5 +204,32 @@ html, body {
 
 .word{
   display:inline-block;
+  position:relative;
   margin: 2px;
+
+}
+
+.word span{
+  display:block;
+  visibility: hidden;
+  border:5px solid grey;
+  background-color:white;
+  color:#000;
+  position:absolute;
+  top:40px;
+  height: auto;
+  text-align: center;
+  padding:10px;
+  opacity:0;
+  transition: opacity 0.5s;
+}
+
+.word:hover span{
+  visibility: visible;
+  opacity:1;
+}
+
+.word:hover {
+  background-color: grey;
+
 }

@@ -38,33 +38,38 @@ function checkSpeech(originalText, speechString) {
   }
 
   //speechString is a longer sentences
-  if (speechArray.length > originalArray.length) {
-    let j = 0;
-    for (let i = 0; i < originalArray.length; i++) {
-      if (j >= speechArray.length) break;
-      if (speechArray[j] == originalArray[i]) {
-        originalWordObjectArray[i].changeStatus(0);
-        speechWordObjectArray[j].changeStatus(0);
-      } else {
-        while (originalArray.slice(i, originalArray.length).indexOf(speechArray[j]) == -1) {
-          //console.log(speechArray[j], i);
-          //redundentWords.push(speechArray[j]);
-          speechWordObjectArray[j].changeStatus(2);
+  //if (speechArray.length > originalArray.length) {
+  let j = 0;
+  for (let i = 0; i < originalArray.length; i++) {
+    if (j >= speechArray.length) break;
+    if (speechArray[j] == originalArray[i]) {
+      originalWordObjectArray[i].changeStatus(0);
+      speechWordObjectArray[j].changeStatus(0);
+    } else {
+      while (originalArray.slice(i, originalArray.length).indexOf(speechArray[j]) == -1) {
+        //console.log(speechArray[j], i);
+        //redundentWords.push(speechArray[j]);
+        speechWordObjectArray[j].changeStatus(2);
 
-          j++;
-          if (j > speechArray.length) {
-            break;
-          }
+        j++;
+        if (j > speechArray.length) {
+          break;
         }
-        //console.log(speechArray[j], originalArray[i]);
-        originalWordObjectArray[i].changeStatus(speechArray[j] == originalArray[i] ? 0 : 1);
-        speechWordObjectArray[j].changeStatus(speechArray[j] == originalArray[i] ? 0 : 1);
       }
-      j++;
+      //console.log(speechArray[j], originalArray[i]);
+      originalWordObjectArray[i].changeStatus(speechArray[j] == originalArray[i] ? 0 : 1);
+      speechWordObjectArray[j].changeStatus(speechArray[j] == originalArray[i] ? 0 : 1);
     }
+    j++;
   }
+  //}
   for (let i = 0; i < originalWordObjectArray.length; i++) {
     console.log(speechWordObjectArray[i]);
+  }
+  for (let k = 0; k < originalWordObjectArray.length; k++) {
+    if (originalWordObjectArray[k].status == null) {
+      originalWordObjectArray[k].changeStatus(3);
+    }
   }
 }
 
