@@ -1,4 +1,4 @@
-function checkSpeech(originalText, speechString) {
+function checkSpeech(originalText, input) {
   let originalContainer = createDiv();
   originalContainer.parent("content");
   originalContainer.class("container");
