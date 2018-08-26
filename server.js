@@ -12,13 +12,14 @@ function handleRequest(req, res) {
   }
 
   // Ok what's our file extension
-  <<
-  <<
-  << < HEAD
   let ext = path.extname(pathname);
 
   // Map extension to file type
-
+     let typeExt = {
+       '.html': 'text/html',
+       '.js':   'text/javascript',
+       '.css':  'text/css'
+     };
   // What is it?  Default to plain text
   var contentType = typeExt[ext] || 'text/plain';
 
