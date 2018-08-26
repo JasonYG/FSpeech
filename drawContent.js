@@ -244,6 +244,7 @@ function drawContent(Page) {
     speechText.parent(divText);
     */
 
+    // replace strings with variables
     checkSpeech("I want to eat a lot of cheese", "I like to eat cheese");
 
     divButton = createDiv();
