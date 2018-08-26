@@ -30,13 +30,6 @@ function checkSpeech(originalText, speechString) {
     speechWordObjectArray[i].word.parent(speechContainer); //adds div attributes to the parentDiv
   }
 
-  //sentences are same length
-  if (speechArray.length == originalArray.length) {
-    for (let i = 0; i < speechArray.length; i++) {
-      speechWordObjectArray[i].changeStatus(speechArray[i] == originalArray[i] ? 0 : 1);
-    }
-  }
-
   //speechString is a longer sentences
   //if (speechArray.length > originalArray.length) {
   let j = 0;
