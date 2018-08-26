@@ -72,7 +72,7 @@ function drawContent(Page) {
     divPara.class("para");
     divPara.parent(content);
 
-    para = createElement("p", "Description of our product.");
+    para = createElement("p", "The absolute best tool to prepare for presentations!");
     para.parent(divPara);
 
     divButton = createDiv();
