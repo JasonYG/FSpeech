@@ -7,8 +7,6 @@ function checkSpeech(originalText, speechString) {
   speechContainer.parent("content");
   speechContainer.class("container")
 
-
-
   let originalWordObjectArray = [];
   let speechWordObjectArray = [];
   let redundentWords = [];
@@ -71,7 +69,13 @@ function checkSpeech(originalText, speechString) {
       originalWordObjectArray[k].changeStatus(3);
     }
   }
+
+  console.log("Analyzing user speech accuracy...");
+  resultAnalysisScore(speechWordObjectArray, originalWordObjectArray); //calculate user score
+  
+
 }
+
 
 
 

@@ -54,9 +54,13 @@ function CreateNewWord(word, Parent) {
       wordTextTooltip.html("Added word");
       //redundant
     } else if (Status == 3) {
-      this.word.style("color", "yellow");
+      this.word.style("color", "orange");
       wordTextTooltip.html("Unsaid word");
       //redundant
     }
+  }
+
+  this.createElement = function(){
+
   }
 }
