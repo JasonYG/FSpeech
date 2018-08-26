@@ -3,13 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>test</title>
+  <title>F Speaking</title>
+  <link href="index.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
   <script src="libraries/p5.js"></script>
   <script src="libraries/p5.dom.js"></script>
   <script src="libraries/p5.sound.js"></script>
-  <script src="libraries/require.js"></script>
+  <script src="libraries/socket.io.js"></script>
+
+  <script src="server.js"></script>
+  <script src="client.js"></script>
   <script src="index.js"></script>
+  <script src="analyzeUserSpeech.js"></script>
+  <script src="drawContent.js"></script>
+  <script src="text-to-screen.js"></script>
+
+  <div id="sketch" class="sketch">
+    <div id="content" class="content">
+    </div>
+  </div>
 </body>
 </html>

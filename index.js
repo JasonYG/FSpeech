@@ -1,75 +1,76 @@
-const record = require('node-record-lpcm16');
+let canvas;
+let currentState = 1;
+let animationHandler = -1;
+let animationTime = 30;
 
-// Imports the Google Cloud client library
-const speech = require('@google-cloud/speech');
+function setup() {
+  canvas  = createCanvas(windowWidth, windowHeight);
+  canvas.parent("sketch");
+  changePage(0);
+  background(255);
+}
+function drawBackObjects(State){
+  let state = State;
+  if(state == 0){
+    noStroke();
+    fill(200, 200, 200);
+    rect(0, 0, windowWidth, windowHeight);
+    fill(190, 0, 0);
+    rect(0, 0, windowWidth, windowHeight/2);
+  }
+  if(state == 1){
+    noStroke();
+    fill(200, 200, 200);
+    rect(0, 0, windowWidth, windowHeight);
+    fill(190, 0, 0);
+    rect(0, 0, windowWidth, 95);
+  }
 
-// Creates a client
-const client = new speech.SpeechClient();
+  if(state == 2){
+    noStroke();
+    fill(200, 200, 200);
+    rect(0, 0, windowWidth, windowHeight);
+    fill(190, 0, 0);
+    rect(0, 0, windowWidth, windowHeight/2-(windowHeight/2-95)/animationTime*(animationHandler+1));
+  }
 
-/**
- * TODO(developer): Uncomment the following lines before running the sample.
- */
-// const encoding = 'Encoding of the audio file, e.g. LINEAR16';
-// const sampleRateHertz = 16000;
-// const languageCode = 'BCP-47 language code, e.g. en-US';
+  if(state == 3){
+    noStroke();
+    fill(200, 200, 200);
+    rect(0, 0, windowWidth, windowHeight);
+    fill(190, 0, 0);
+    rect(0, 0, windowWidth, windowHeight);
+  }
 
-const request = {
-  config: {
-    encoding: encoding,
-    sampleRateHertz: sampleRateHertz,
-    languageCode: languageCode,
-  },
-  interimResults: false, // If you want interim results, set this to true
-};
+  if(state == 4){
+    noStroke();
+    fill(200, 200, 200);
+    rect(0, 0, windowWidth, windowHeight);
+    fill(190, 0, 0);
+    rect(0, 0, windowWidth, 95+(windowHeight-95)/animationTime*(animationHandler+1));
+  }
 
-// Create a recognize stream
-const recognizeStream = client
-  .streamingRecognize(request)
-  .on('error', console.error)
-  .on('data', data =>
-    process.stdout.write(
-      data.results[0] && data.results[0].alternatives[0] ?
-      `Transcription: ${data.results[0].alternatives[0].transcript}\n` :
-      `\n\nReached transcription time limit, press Ctrl+C\n`
-    )
-  );
+}
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  drawBackObjects(currentState);
+}
 
-// Start recording and send the microphone input to the Speech API
-record
-  .start({
-    sampleRateHertz: sampleRateHertz,
-    threshold: 0,
-    // Other options, see https://www.npmjs.com/package/node-record-lpcm16#options
-    verbose: false,
-    recordProgram: 'rec', // Try also "arecord" or "sox"
-    silence: '10.0',
-  })
-  .on('error', console.error)
-  .pipe(recognizeStream);
-
-console.log('Listening, press Ctrl+C to stop.');
-
-// let mic, voiceRecorder, soundFile, button;
-//
-// function setup() {
-//   noCanvas();
-//
-//   mic = new p5.AudioIn();
-//   mic.start();
-//
-//   soundFile = new p5.SoundFile();
-//
-//   button = createButton("Start/Stop Recording");
-//   button.mouseReleased(recordVoice);
-// }
-//
-// function recordVoice() {
-//   voiceRecorder = new p5.SoundRecorder();
-//   voiceRecorder.setInput(mic);
-//   voiceRecorder.record(soundFile);
-//   setTimeout(() => {
-//     voiceRecorder.stop();
-//     soundFile.play();
-//     saveSound(soundFile, "voiceRecording.wav");
-//   }, 5000);
-// }
+function draw(){
+  if(animationHandler != -1 && currentState == 2){
+    drawBackObjects(currentState);
+    animationHandler++;
+    if(animationHandler == animationTime){
+      animationHandler = -1;
+      currentState = 1;
+    }
+  }
+  if(animationHandler != -1 && currentState == 4){
+    drawBackObjects(currentState);
+    animationHandler++;
+    if(animationHandler == animationTime){
+      animationHandler = -1;
+      currentState = 3;
+    }
+  }
+}
