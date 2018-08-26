@@ -253,3 +253,35 @@ html, body {
   background-color: grey;
 
 }
+
+.karaoke{
+  display:block;
+  position:relative;
+  width:inherit;
+  top:30%;
+  height:50%;
+  background-color: #800000;
+  text-align: right;
+  font-size:2.5em;
+}
+
+.karaokeWord{
+  display:none;
+  text-align: right;
+  margin: 4px;
+}
+
+.karaokeWord span{
+  display:block;
+  visibility: hidden;
+  border:5px solid grey;
+  background-color:white;
+  color:#000;
+  position:absolute;
+  top:40px;
+  height: auto;
+  text-align: center;
+  padding:10px;
+  opacity:0;
+  transition: opacity 0.5s;
+}

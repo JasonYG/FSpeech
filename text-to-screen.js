@@ -23,11 +23,16 @@ function preload() {
 // }
 
 // class for individual words as objects
-function CreateNewWord(word, Parent) {
+function CreateNewWord(word, Parent, id=0) {
   //create a new word which will go into a list of words
   this.word = createDiv();
   this.word.parent(Parent);
-  this.word.class("word");
+  if(id==0){
+    this.word.class("karaokeWord");
+  }else{
+    this.word.class("word");
+  }
+
 
   let wordTextObj = createElement("p", word);
   wordTextObj.parent(this.word);
@@ -43,6 +48,7 @@ function CreateNewWord(word, Parent) {
   this.changeStatus = function(Status) {
     this.status = Status;
     //console.log("Color changing!");
+    this.word.style("display", "inline-block");
     if (Status == 0) {
       this.word.style("color", "white");
       wordTextTooltip.html("Correct reading");
@@ -58,5 +64,8 @@ function CreateNewWord(word, Parent) {
       wordTextTooltip.html("Unsaid word");
       //redundant
     }
+  }
+  this.drawKaraoke = function(Status) {
+
   }
 }

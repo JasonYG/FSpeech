@@ -3,14 +3,13 @@ let currentState = 1;
 let animationHandler = -1;
 let animationTime = 30;
 
+let originalContainer;
+
 function setup() {
   canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent("sketch");
   changePage(0);
   background(255);
-  for (let i = 0; i < "hello world I love cheese".split(" ").length; i++) {
-    checkSpeech("hello world I love cheese", "hel world U love");
-  }
 }
 
 function drawBackObjects(State) {

@@ -1,4 +1,5 @@
-//let input;
+let textInput = '';
+let speechInput = '';
 
 function changePage(Page) {
   let page = Page;
@@ -101,7 +102,6 @@ function drawContent(Page) {
     header = createElement("h2", "Step 1: Input Text and Press Enter");
     header.parent(divHeader);
 
-
     divInbox = createDiv();
     divInbox.class("inbox");
     divInbox.parent("content");
@@ -124,9 +124,9 @@ function drawContent(Page) {
 
     function recStart() {
       //start recording here
-      input = inbox.value();
+      textInput = inbox.value();
 
-      var check = Boolean(input);
+      var check = Boolean(textInput);
       if (check) {
         removeElements();
         changePage(2);
@@ -155,16 +155,21 @@ function drawContent(Page) {
 
     header = createElement("h2", "Step 2: Record Yourself");
     header.parent(divHeader);
-
+    /*
     divText = createDiv();
     divText.class("inbox outbox");
     divText.parent("content");
 
-    text = createElement("textarea", input);
+    text = createElement("textarea", textInput);
     text.elt.readOnly = "true";
     text.elt.cols = "80";
     text.elt.rows = "15";
     text.parent(divText);
+    */
+    originalContainer = createDiv();
+    originalContainer.id("container");
+    originalContainer.parent("content");
+    originalContainer.class("karaoke");
 
     divButton = createDiv();
     divButton.class("recButton");
@@ -191,6 +196,13 @@ function drawContent(Page) {
 
     function recStart() {
       //alert("Recording Started!");
+      let originalTextWords = textInput.split(" ");
+
+      for (let originalWord of originalTextWords) {
+        let newWordObject = new CreateNewWord(originalWord.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,""), originalContainer, 0);
+        originalObjects.push(newWordObject);
+      }
+
       buttonIcon.class("fa fa-stop");
       button.mouseReleased(recStop);
       startSpeechRecognition();
@@ -198,13 +210,36 @@ function drawContent(Page) {
     }
 
     function recStop() {
-      buttonIcon.class("fa fa-repeat");
       button.mouseReleased(recStart);
+      buttonIcon.class("fa fa-repeat");
       button.hide();
       stopSpeechRecognition();
       divNext.show();
-      //changePage(3);
     }
+
+    async function updateSpeechInput() {
+      let runAlg = setInterval(() => {
+        checkSpeech(speechInput);
+        console.log("RAN ALGORITHM");
+      }, 2000);
+
+      let recStopPromise = new Promise((resolve, reject) => {
+        recStop();
+        resolve();
+      })
+
+      await recStopPromise;
+      clearInterval(runAlg);
+    }
+
+    // function recStop() {
+    //   buttonIcon.class("fa fa-repeat");
+    //   button.mouseReleased(recStart);
+    //   button.hide();
+    //   stopSpeechRecognition();
+    //   divNext.show();
+    //   //changePage(3);
+    // }
 
     function next() {
       changePage(3);
