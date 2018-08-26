@@ -1,6 +1,8 @@
 let data_verify;
 
 let originalObjects = [];
+let speechObjects = [];
+let ogAnalysisObjects = [];
 
 // for (let i = 0; i < "hello world I love cheese".split(" ").length; i++) {
 //   checkSpeech("hello world I love cheese", "hel world U love");

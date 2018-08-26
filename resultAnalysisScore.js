@@ -4,22 +4,24 @@
 function resultAnalysisScore(speechWordObjectArray, originalWordObjectArray){
   let totalOrigWords = originalWordObjectArray.length; //orignal word count
 
+  console.log(speechWordObjectArray, originalWordObjectArray);
+
   // get total num of correct words said
   let totalGreenWords = 0;
   let totalYellowWords = 0;
   let totalRedWords = 0;
   for (let i = 0; i < speechWordObjectArray.length; i++){
-    if (speechWordObjectArray[i].status == 0){
+    if (originalWordObjectArray[i].status == 0){
       totalGreenWords++;
     }
-    if (speechWordObjectArray[i].status == 2){
+    if (originalWordObjectArray[i].status == 2){
       totalYellowWords++;
     }
-    if (speechWordObjectArray[i].status == 1){
+    if (originalWordObjectArray[i].status == 1){
       totalRedWords++;
     }
   }
-  console.log("Green: " + totalGreenWords, "Yellow: " + totalYellowWords, "Red: " + totalYellowWords);
+  console.log("Green: " + totalGreenWords, "Yellow: " + totalYellowWords, "Red: " + totalRedWords);
 
   // calculating score
   // give the user general suggestions
@@ -33,5 +35,7 @@ function resultAnalysisScore(speechWordObjectArray, originalWordObjectArray){
   let redWeight = -0.25;
   weightedScore = ((greenWeight*totalGreenWords) + (redWeight*totalRedWords) + (yellowWeight*totalYellowWords));
   console.log("Weighted Average: " + weightedScore + "%");
+
+  return [totalGreenWords, totalYellowWords, totalRedWords, accuracyScore, weightedScore];
 
 }

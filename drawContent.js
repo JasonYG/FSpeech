@@ -262,11 +262,45 @@ function drawContent(Page) {
 
     header = createElement("h2", "Step 3: Review");
     header.parent(divHeader);
-    /*
+
     divText = createDiv();
     divText.class("reviewBox");
     divText.parent("content");
 
+    originalContainer = createDiv();
+    originalContainer.class("container");
+    originalContainer.parent(divText);
+
+    originalHeader = createElement("p", "Script");
+    originalHeader.class("containerHeader");
+    originalHeader.parent(originalContainer);
+
+    speechContainer = createDiv();
+    speechContainer.class("container");
+    speechContainer.parent(divText);
+
+    speechHeader = createElement("p", "Your speech");
+    speechHeader.class("containerHeader");
+    speechHeader.parent(speechContainer);
+
+    for (let speechWord of speechInput.split(" ")) {
+      let newWordObject = new CreateNewWord(speechWord.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,""), speechContainer, 1);
+      speechObjects.push(newWordObject);
+    }
+
+    for (let i = 0; i < originalObjects.length; i++) {
+      let newWordObject = new CreateNewWord(originalObjects[i].wordText.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,""), originalContainer, 1);
+      if(originalObjects[i].status == null){
+        newWordObject.changeStatus(3);
+      }else {
+        newWordObject.changeStatus(originalObjects[i].status);
+      }
+      ogAnalysisObjects.push(newWordObject);
+    }
+
+
+
+    /*
     pasteText = createElement("textarea", input);
     pasteText.elt.readOnly = "true";
     pasteText.elt.cols = "80";
@@ -281,6 +315,37 @@ function drawContent(Page) {
     */
 
     //checkSpeech("The road runs beside the red houses, and the green house and town houses are nearby.", "The road runs beside the red houses and the green house, and town houses are nearby.");
+
+    scorePanel = createDiv();
+    scorePanel.class("container");
+    scorePanel.parent(divText);
+
+    analysis = resultAnalysisScore(speechObjects, ogAnalysisObjects);
+
+    item1 = createElement("p", "Correct Words: "+String(analysis[0]));
+    item1.class("scoreItem");
+    item1.parent(scorePanel);
+    item1.style("color", "white");
+
+    item2 = createElement("p", "Misread Words: "+String(analysis[1]));
+    item2.class("scoreItem");
+    item2.parent(scorePanel);
+    item2.style("color", "red");
+
+    item3 = createElement("p", "Unread Words: "+String(analysis[2]));
+    item3.class("scoreItem");
+    item3.parent(scorePanel);
+    item3.style("color", "yellow");
+
+    item4 = createElement("p", "Accuracy:   "+String(analysis[3])+"%");
+    item4.class("scoreItem");
+    item4.parent(scorePanel);
+    item4.style("color", "green");
+
+    item5 = createElement("p", "Total Speech Score: "+String(analysis[4]));
+    item5.class("scoreItem");
+    item5.parent(scorePanel);
+    item5.style("color", "white");
 
     divButton = createDiv();
     divButton.parent("content");
