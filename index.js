@@ -1,44 +1,79 @@
-let inbox;
-let outbox;
-let b_rec_start;
-let b_rec_stop;
-
-let input;
-let output;
+let canvas;
+let currentState = 1;
+let animationHandler = -1;
+let animationTime = 30;
 
 function setup() {
-  noCanvas();
-  inbox = createElement("textarea");
-  inbox.elt.placeholder = "input goes here";
-  inbox.elt.cols = "50";
-  inbox.elt.rows = "4";
-  inbox.html("yeet");
+  canvas = createCanvas(windowWidth, windowHeight);
+  canvas.parent("sketch");
+  changePage(3);
+  background(255);
 
-  b_rec_start = createButton("record");
-  b_rec_start.mouseReleased(rec_start);
-
-  b_rec_stop = createButton("stop recording");
-  b_rec_start.mouseReleased(rec_stop);
-
-  outbox = createElement("textarea");
-  outbox.elt.placeholder = "output goes here";
-  outbox.elt.cols = "50";
-  outbox.elt.rows = "4";
-
-  //background(0);
 }
 
+function drawBackObjects(State) {
+  let state = State;
+  if (state == 0) {
+    noStroke();
+    fill(200, 200, 200);
+    rect(0, 0, windowWidth, windowHeight);
+    fill(100, 100, 100);
+    rect(0, 0, windowWidth, windowHeight / 2);
+  }
+  if (state == 1) {
+    noStroke();
+    fill(200, 200, 200);
+    rect(0, 0, windowWidth, windowHeight);
+    fill(100, 100, 100);
+    rect(0, 0, windowWidth, 95);
+  }
 
-function rec_start(){
-  input = inbox.value();
-  console.log(input);
+  if (state == 2) {
+    noStroke();
+    fill(200, 200, 200);
+    rect(0, 0, windowWidth, windowHeight);
+    fill(100, 100, 100);
+    rect(0, 0, windowWidth, windowHeight / 2 - (windowHeight / 2 - 95) / animationTime * (animationHandler + 1));
+  }
 
-  //start recording here
+  if (state == 3) {
+    noStroke();
+    fill(200, 200, 200);
+    rect(0, 0, windowWidth, windowHeight);
+    fill(100, 100, 100);
+    rect(0, 0, windowWidth, windowHeight);
+  }
+
+  if (state == 4) {
+    noStroke();
+    fill(200, 200, 200);
+    rect(0, 0, windowWidth, windowHeight);
+    fill(100, 100, 100);
+    rect(0, 0, windowWidth, 95 + (windowHeight - 95) / animationTime * (animationHandler + 1));
+  }
+
 }
 
-function rec_stop(){
-  //stop recording, save, put in text to speech, paste into output
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  drawBackObjects(currentState);
+}
 
-  outbox.value(output);
-  console.log(output);
+function draw() {
+  if (animationHandler != -1 && currentState == 2) {
+    drawBackObjects(currentState);
+    animationHandler++;
+    if (animationHandler == animationTime) {
+      animationHandler = -1;
+      currentState = 1;
+    }
+  }
+  if (animationHandler != -1 && currentState == 4) {
+    drawBackObjects(currentState);
+    animationHandler++;
+    if (animationHandler == animationTime) {
+      animationHandler = -1;
+      currentState = 3;
+    }
+  }
 }
