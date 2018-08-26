@@ -280,7 +280,7 @@ function drawContent(Page) {
     speechText.parent(divText);
     */
 
-    checkSpeech("The road runs beside the red houses, and the green house and town houses are nearby.", "The road runs beside the red houses and the green house, and town houses are nearby.");
+    //checkSpeech("The road runs beside the red houses, and the green house and town houses are nearby.", "The road runs beside the red houses and the green house, and town houses are nearby.");
 
     divButton = createDiv();
     divButton.parent("content");
