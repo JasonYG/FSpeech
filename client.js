@@ -16,6 +16,7 @@ function startSpeechRecognition() {
 }
 
 function stopSpeechRecognition() {
-  console.log("Started Recording");
+  console.log("Stopped Recording");
   socket.emit('stopRecord');
+
 }

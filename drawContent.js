@@ -200,6 +200,7 @@ function drawContent(Page) {
     function recStop() {
       buttonIcon.class("fa fa-repeat");
       button.mouseReleased(recStart);
+      button.hide();
       stopSpeechRecognition();
       divNext.show();
       //changePage(3);
@@ -244,7 +245,7 @@ function drawContent(Page) {
     speechText.parent(divText);
     */
 
-    checkSpeech("I want to eat a lot of cheese", "I like to eat cheese");
+    checkSpeech("The road runs beside the red houses, and the green house and town houses are nearby.", "The road runs beside the red houses and the green house, and town houses are nearby.");
 
     divButton = createDiv();
     divButton.parent("content");
@@ -254,8 +255,10 @@ function drawContent(Page) {
     button.mouseReleased(recStart);
     button.class("button");
     button.parent(divButton);
+    button.hide();
 
     function recStart() {
+      close();
       removeElements();
       changePage(1);
     }

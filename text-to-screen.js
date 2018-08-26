@@ -44,7 +44,7 @@ function CreateNewWord(word, Parent) {
     this.status = Status;
     //console.log("Color changing!");
     if (Status == 0) {
-      this.word.style("color", "green");
+      this.word.style("color", "white");
       wordTextTooltip.html("Correct reading");
     } else if (Status == 1) {
       this.word.style("color", "red");

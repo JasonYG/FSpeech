@@ -33,7 +33,7 @@ function checkSpeech(originalText, speechString) {
   //sentences are same length
   if (speechArray.length == originalArray.length) {
     for (let i = 0; i < speechArray.length; i++) {
-      speechWordObjectArray[j].changeStatus(speechArray[j] == originalArray[i] ? 0 : 1);
+      speechWordObjectArray[i].changeStatus(speechArray[i] == originalArray[i] ? 0 : 1);
     }
   }
 

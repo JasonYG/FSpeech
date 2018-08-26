@@ -80,10 +80,7 @@ io.sockets.on('connection',
     socket.on('record',
       function() {
         // Create a recognize stream for Google Cloud Speech API
-        const recognizeStream = client
-          .streamingRecognize(request)
-          .on('error', console.error)
-          .on('data', data => {
+        const recognizeStream = client.streamingRecognize(request).on('error', console.error).on('data', data => {
             console.log("yes");
             process.stdout.write(data.results[0] && data.results[0].alternatives[0] ? `Transcription:${data.results[0].alternatives[0].transcript}\n`: `\n\nReached transcription time limit, press Ctrl+C\n`);
             io.sockets.emit('recorded', data.results[0].alternatives[0].transcript);
